@@ -10,7 +10,7 @@
 </head>
 <body id="page-top">
     <div id="wrapper">
-       
+       <?= $this->include('admin/layouts/sidebar'); ?>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <?= $this->include('admin/layouts/navbar'); ?>
