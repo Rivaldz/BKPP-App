@@ -6,8 +6,19 @@
     <h1 class="h3 mb-0 text-gray-800">Welcome Home Admin</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
+
+<table>
+        <tr>
+            <td>Baris ke 1 - Kolom ke 1</td>
+            <td>Baris ke 1 - Kolom ke 2</td>
+        </tr>
+        <tr>
+            <td>Baris ke 2 - Kolom ke 1</td>
+            <td>Baris ke 2 - Kolom ke 2</td>
+        </tr>
+    </table>
  
-<div class="row">
+<!-- <div class="row">
 
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
@@ -83,7 +94,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
 
 
@@ -291,5 +302,5 @@
 
             </div> 
           </div>
-
+-->
 <?= $this->endSection(); ?>
