@@ -9,11 +9,24 @@ class HomeAdmin extends Controller{
         $model = new Bidang_admin_model;
         $data['title'] = 'Data Bidang';
         $data['getNamaBidang'] = $model->getNamaBidang();
+       return view('admin/pages/home_admin',$data);
+    }
 
-        // echo view('header_view', $data);
-        // echo view('barang_view', $data);
-        // echo view('footer_view', $data);
-        return view('admin/pages/home_admin',$data);
+    // public function tambah(){
+    //     $data = 'tambah data bidang';
+    //     return view('admin/pages/tambah_bidang',$data);
+    // }
+
+    public function addBidang(){
+        $model = new Bidang_admin_model;
+        $data = array(
+            'nama_bidang' => $this->request->getPost('nama')
+        );
+        $model->saveBidang($data);
+        echo '<script>
+                 alert("Sukses Tambah Data Barang");
+                 window.location="'.base_url('homeadmin').'"
+              </script>';
 
     }
 }

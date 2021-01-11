@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
 
 <div class="container pt-5">
-    <a href="<?= base_url('bidang/tambah');?>" class="btn btn-success mb-2">Tambah Bidang</a>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalBidang">Tambah Bidang</button>
     <div class="card">
         <div class="card-header bg-info text-white">
             <h4 class="card-title"> Data Bidang</h4>
@@ -24,7 +24,7 @@
                                     <?= $no;?> 
                                 </td> 
                                 <td>
-                                    <?= $isi['Nama_Bidang']?>
+                                    <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
                                 <a href="<?= base_url('barang/edit/'.$isi['id_barang']);?>" 
@@ -44,4 +44,32 @@
         </div>
     </div>
 </div>
+
+   <!-- Modal Add Product-->
+   <form action="/HomeAdmin/addBidang" method="post">
+        <div class="modal fade" id="modalBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+             
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" name="nama" placeholder="Product Name">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
+    <!-- End Modal Add Product-->
 <?= $this->endSection(); ?>

@@ -13,4 +13,9 @@ class Bidang_admin_model extends Model{
             return $this->getWhere(['id_bidang' => $id]);
         }
     }
+
+    public function saveBidang($data){
+        $builder = $this->db->table($this->table);
+        return $builder->insert($data);
+    }
 }
