@@ -4,10 +4,10 @@ use CodeIgniter\Model;
 
 class Bidang_admin_model extends Model{
 
-    protected $table = 'nama_bidang_db';
+    protected $table = 'nama_bidang_tb';
 
     public function getNamaBidang($id = false){
-        if ($if == false) {
+        if ($id === false) {
             return $this->findAll();
         }else{
             return $this->getWhere(['id_bidang' => $id]);
