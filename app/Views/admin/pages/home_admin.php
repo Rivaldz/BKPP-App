@@ -26,17 +26,8 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
-<<<<<<< HEAD
-                                <!-- <a href=""
-                                    class="btn btn-success" data-toggel>
-                                    Edit</a> -->
-                                <button href="<?= base_url('/HomeAdmin/editBidang'.$isi['id_bidang']);?>"  class="btn btn-success" data-toggle="modal" data-target="#editBidang">Edit</button>
-
-                                    <a href="<?= base_url('barang/hapus/'.$isi['id_barang']);?>" 
-=======
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
                                     <a href="<?= base_url('barang/hapus/'.$isi['id_bidang']);?>" 
->>>>>>> a29566423eddaef0cb75b5d7afe4f00a8717df97
                                     onclick="javascript:return confirm('Apakah ingin menghapus data barang ?')"
                                     class="btn btn-danger">
                                     Hapus</a>
