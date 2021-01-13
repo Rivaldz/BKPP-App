@@ -12,11 +12,6 @@ class HomeAdmin extends Controller{
        return view('admin/pages/home_admin',$data);
     }
 
-    // public function tambah(){
-    //     $data = 'tambah data bidang';
-    //     return view('admin/pages/tambah_bidang',$data);
-    // }
-
     public function addBidang(){
         $model = new Bidang_admin_model;
         $data = array(
@@ -28,5 +23,23 @@ class HomeAdmin extends Controller{
                  window.location="'.base_url('homeadmin').'"
               </script>';
 
+    }
+
+    public function editBidang($id){
+        $model = new Bidang_admin_model;
+        $getNamaBidang = $model->getNamaBidang($id)->getRow();
+        if (isset($getNamaBidang)) {
+            $data['bidang'] = $getNamaBidang;
+            $data['title'] = 'Edit '.$getNamaBidang->nama_bidang;
+            view('admin/pages/home_admin',$data);
+
+        }
+        else{
+            '<script>
+                    alert("ID barang '.$id.' Tidak ditemukan");
+                    window.location="'.base_url('barang').'"
+                </script>';
+
+        }
     }
 }
