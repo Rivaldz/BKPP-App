@@ -20,4 +20,11 @@ class Bidang_admin_model extends Model{
         $builder = $this->db->table($this->table);
         return $builder->insert($data);
     }
+
+    public function updateBidang($data)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->where('id_bidang', $data['id_bidang']);
+        return $builder->update($data);
+    }
 }

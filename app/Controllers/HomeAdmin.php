@@ -40,7 +40,7 @@ class HomeAdmin extends Controller{
 
     public function editBidang($id) {
         
-        $this->modelBidang->saveBidang([
+        $this->modelBidang->updateBidang([
             'id_bidang' => $id,
             'nama_bidang'=>$this->request->getVar('nama')
         ]);
