@@ -4,7 +4,7 @@
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalBidang">Tambah Bidang</button>
     <div class="card">
         <div class="card-header bg-info text-white">
-            <h4 class="card-title"> Data Bidang</h4>
+            <h4 class="card-title">Data Bidang</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -79,7 +79,7 @@
              
                 <div class="form-group">
                     <label>Product Name</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Product Name" value="<?= $bidang->nama_bidang;?>">
+                    <input type="text" class="form-control" name="nama" placeholder="Product Name">
                 </div>
             </div>
             <div class="modal-footer">
