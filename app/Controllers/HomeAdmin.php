@@ -5,11 +5,19 @@ use App\Models\Bidang_admin_model;
 
 class HomeAdmin extends Controller{
 
+    protected $modelBidang;
+
+    public function __construct() {
+        $this->modelBidang = new Bidang_admin_model();
+    }
+
     public function index(){
         $model = new Bidang_admin_model;
         $data['title'] = 'Data Bidang';
         $data['getNamaBidang'] = $model->getNamaBidang();
-       return view('admin/pages/home_admin',$data);
+        
+        return view('admin/pages/home_admin',$data);
+        // return dd($data['getNamaBidang']);
     }
 
     public function addBidang(){
@@ -25,6 +33,7 @@ class HomeAdmin extends Controller{
 
     }
 
+<<<<<<< HEAD
     public function editBidang($id){
         $model = new Bidang_admin_model;
         $getNamaBidang = $model->getNamaBidang($id)->getRow();
@@ -41,5 +50,14 @@ class HomeAdmin extends Controller{
                 </script>';
 
         }
+=======
+    public function editBidang($id) {
+        
+        $this->modelBidang->saveBidang([
+            'id_bidang' => $id,
+            'nama_bidang'=>$this->request->getVar('nama')
+        ]);
+        return redirect()->to('/homeadmin');
+>>>>>>> a29566423eddaef0cb75b5d7afe4f00a8717df97
     }
 }
