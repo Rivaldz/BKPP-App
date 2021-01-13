@@ -25,6 +25,7 @@ class HomeAdmin extends Controller{
 
     }
 
+<<<<<<< HEAD
     public function editBidang($id){
         $model = new Bidang_admin_model;
         $getNamaBidang = $model->getNamaBidang($id)->getRow();
@@ -42,4 +43,10 @@ class HomeAdmin extends Controller{
 
         }
     }
+=======
+    // public function editBidang() {
+    //     $model =  new Bidang_admin_model;
+    //     $data = 
+    // }
+>>>>>>> 81e40363ce99254987f3874dcac3595777e8ded1
 }
