@@ -29,4 +29,9 @@ class HomeAdmin extends Controller{
               </script>';
 
     }
+
+    // public function editBidang() {
+    //     $model =  new Bidang_admin_model;
+    //     $data = 
+    // }
 }
