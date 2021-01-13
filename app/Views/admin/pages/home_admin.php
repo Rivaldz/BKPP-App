@@ -26,8 +26,17 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
+<<<<<<< HEAD
+                                <!-- <a href=""
+                                    class="btn btn-success" data-toggel>
+                                    Edit</a> -->
+                                <button href="<?= base_url('/HomeAdmin/editBidang'.$isi['id_bidang']);?>"  class="btn btn-success" data-toggle="modal" data-target="#editBidang">Edit</button>
+
+                                    <a href="<?= base_url('barang/hapus/'.$isi['id_barang']);?>" 
+=======
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
                                     <a href="<?= base_url('barang/hapus/'.$isi['id_bidang']);?>" 
+>>>>>>> a29566423eddaef0cb75b5d7afe4f00a8717df97
                                     onclick="javascript:return confirm('Apakah ingin menghapus data barang ?')"
                                     class="btn btn-danger">
                                     Hapus</a>
@@ -63,8 +72,8 @@
         </div>
     </div>
 
-
-   <!-- Modal Add Product-->
+<<<<<<< HEAD
+   <!-- Modal Add Bidang-->
    <form action="/HomeAdmin/addBidang" method="post">
         <div class="modal fade" id="modalBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -89,5 +98,36 @@
         </div>
         </div>
     </form>
-    <!-- End Modal Add Product-->
+    <!-- End Modal Add Bidang-->
+=======
+>>>>>>> a29566423eddaef0cb75b5d7afe4f00a8717df97
+
+    <!-- Modal Edit Bidang-->
+    <form action="/HomeAdmin/addBidang" method="post">
+        <div class="modal fade" id="editBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+             
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" name="nama" placeholder="Product Name" value="<?= $bidang->nama_bidang;?>">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
+    <!-- End Modal Edit Bidang-->
+
 <?= $this->endSection(); ?>

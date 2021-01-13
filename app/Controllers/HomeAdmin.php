@@ -20,11 +20,6 @@ class HomeAdmin extends Controller{
         // return dd($data['getNamaBidang']);
     }
 
-    // public function tambah(){
-    //     $data = 'tambah data bidang';
-    //     return view('admin/pages/tambah_bidang',$data);
-    // }
-
     public function addBidang(){
         $model = new Bidang_admin_model;
         $data = array(
@@ -38,6 +33,24 @@ class HomeAdmin extends Controller{
 
     }
 
+<<<<<<< HEAD
+    public function editBidang($id){
+        $model = new Bidang_admin_model;
+        $getNamaBidang = $model->getNamaBidang($id)->getRow();
+        if (isset($getNamaBidang)) {
+            $data['bidang'] = $getNamaBidang;
+            $data['title'] = 'Edit '.$getNamaBidang->nama_bidang;
+            view('admin/pages/home_admin',$data);
+
+        }
+        else{
+            '<script>
+                    alert("ID barang '.$id.' Tidak ditemukan");
+                    window.location="'.base_url('barang').'"
+                </script>';
+
+        }
+=======
     public function editBidang($id) {
         
         $this->modelBidang->updateBidang([
@@ -45,5 +58,6 @@ class HomeAdmin extends Controller{
             'nama_bidang'=>$this->request->getVar('nama')
         ]);
         return redirect()->to('/homeadmin');
+>>>>>>> a29566423eddaef0cb75b5d7afe4f00a8717df97
     }
 }
