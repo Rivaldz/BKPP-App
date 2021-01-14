@@ -33,12 +33,19 @@ class HomeAdmin extends Controller{
 
     }
 
-    public function editBidang($id) {
-        
+    public function editBidang($id) 
+    {
         $this->modelBidang->updateBidang([
             'id_bidang' => $id,
             'nama_bidang'=>$this->request->getVar('nama')
         ]);
+        return redirect()->to('/homeadmin');
+    }
+
+    public function delete($id)
+    {
+        $model = new Bidang_admin_model;
+        $model->deleteBidang($id);
         return redirect()->to('/homeadmin');
     }
 }

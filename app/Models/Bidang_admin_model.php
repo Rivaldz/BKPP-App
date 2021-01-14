@@ -27,4 +27,9 @@ class Bidang_admin_model extends Model{
         $builder->where('id_bidang', $data['id_bidang']);
         return $builder->update($data);
     }
+
+    public function deleteBidang($id){
+        $query = $this->db->table('nama_bidang_tb')->delete(array('id_bidang' => $id));
+        return $query;
+    }
 }
