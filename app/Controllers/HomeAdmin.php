@@ -15,6 +15,7 @@ class HomeAdmin extends Controller{
         $model = new Bidang_admin_model;
         $data['title'] = 'Data Bidang';
         $data['getNamaBidang'] = $model->getNamaBidang();
+        $data['validation'] = \Config\Services::validation();
         
         return view('admin/pages/home_admin',$data);
         // return dd($data['getNamaBidang']);
@@ -25,6 +26,17 @@ class HomeAdmin extends Controller{
         $data = array(
             'nama_bidang' => $this->request->getPost('nama')
         );
+        if (!$this->validate([
+            'nama'=>[
+                'rules'=>'required',
+                'errors'=> [
+                    'required'=>'{field} tidak boleh kosong!'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/homeadmin')->withInput()->with('validation', $validation);
+        }
         $model->saveBidang($data);
         echo '<script>
                  alert("Sukses Tambah Data Barang");
@@ -35,6 +47,17 @@ class HomeAdmin extends Controller{
 
     public function editBidang($id) 
     {
+        if (!$this->validate([
+            'nama'=>[
+                'rules'=>'required',
+                'errors'=> [
+                    'required'=> '{field} tidak boleh kosong!' 
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/homeadmin')->withInput()->with('validation', $validation);
+        }
         $this->modelBidang->updateBidang([
             'id_bidang' => $id,
             'nama_bidang'=>$this->request->getVar('nama')
