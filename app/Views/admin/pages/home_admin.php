@@ -4,7 +4,7 @@
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalBidang">Tambah Bidang</button>
     <div class="card">
         <div class="card-header bg-info text-white">
-            <h4 class="card-title"> Data Bidang</h4>
+            <h4 class="card-title">Data Bidang</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -27,7 +27,7 @@
                                 </td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
-                                    <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteBidang">
+                                    <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteBidang<?= $isi['id_bidang'];?>">
                                     Hapus</a>
                                 </td>
                              </tr>
@@ -57,7 +57,7 @@
 
                             <div>
                             <form action="/HomeAdmin/delete/<?=$isi['id_bidang'] ?>" method="post">
-                                <div class="modal fade" id="deleteBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteBidang<?= $isi['id_bidang'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -116,7 +116,7 @@
     <!-- End Modal Edit Bidang-->
 
        <!-- Modal Delete Bidang-->
-       <form action="/HomeAdmin/delete/5" method="post">
+       <!-- <form action="/HomeAdmin/delete/5" method="post">
         <div class="modal fade" id="deleteBidangn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -139,7 +139,7 @@
             </div>
         </div>
         </div>
-    </form>
+    </form> -->
     <!-- End Modal Delete Bidang-->
 
 <?= $this->endSection(); ?>
