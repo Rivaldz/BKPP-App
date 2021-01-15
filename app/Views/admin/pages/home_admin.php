@@ -13,6 +13,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Bidang</th>
+                            <th>User</th>
                             <th>Aksi</th>
                         </tr>
                     </thead> 
@@ -26,11 +27,51 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
+                                <button data-toggle="modal" data-target="#tambahUser<?=$isi['id_bidang']?>">Tambah User</button>
+                                </td>
+                                <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
                                     <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteBidang<?= $isi['id_bidang'];?>">
                                     Hapus</a>
                                 </td>
                              </tr>
+
+                             <!-- tambah user -->
+                             <div>
+                             <form action="/HomeAdmin/addUser/<?=$isi['id_bidang']?>" method="post">
+                                <div class="modal fade" id="tambahUser<?= $isi['id_bidang'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                               <div class="form-group">
+                                                 <label for="">Username</label>
+                                                 <input type="text" class="form-control" name="username" placeholder="Username">
+                                               </div> 
+
+                                               <div class="form-group">
+                                                 <label for="">Password</label>
+                                                 <input type="text" class="form-control" name="password" placeholder="Paswoord">
+                                               </div> 
+                                            </div>
+                                                <div class="modal-footer">
+                                                     <input type="hidden" name="product_id" class="productID">
+                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                                     <button type="submit" class="btn btn-primary">Ya</button>
+                                                </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </form>
+                             </div>
+                             <!-- end tambah user -->
+                             
                              <div class="modal fade" id="modalEditBidang<?= $isi['id_bidang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -87,7 +128,7 @@
         </div>
     </div>
 
-    <!-- Modal Edit Bidang-->
+    <!-- Modal Tambah Bidang-->
     <form action="/HomeAdmin/addBidang" method="post">
         <div class="modal fade" id="modalBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -102,8 +143,9 @@
              
                 <div class="form-group">
                     <label>Product Name</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Product Name" value="<?= $bidang->nama_bidang;?>">
+                    <input type="text" class="form-control" name="nama" placeholder="Nama Bidang">
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -113,33 +155,5 @@
         </div>
         </div>
     </form>
-    <!-- End Modal Edit Bidang-->
-
-       <!-- Modal Delete Bidang-->
-       <!-- <form action="/HomeAdmin/delete/5" method="post">
-        <div class="modal fade" id="deleteBidangn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hapus Bidang</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-             
-               <h4>Anda Yakin Ingin Menghapus Bidang Ini?</h4>
-             
-            </div>
-            <div class="modal-footer">
-                <input type="hidden" name="product_id" class="productID">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                <button type="submit" class="btn btn-primary">Ya</button>
-            </div>
-            </div>
-        </div>
-        </div>
-    </form> -->
-    <!-- End Modal Delete Bidang-->
 
 <?= $this->endSection(); ?>

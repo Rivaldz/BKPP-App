@@ -21,6 +21,11 @@ class Bidang_admin_model extends Model{
         return $builder->insert($data);
     }
 
+    public function saveUser($data){
+        $builder = $this->db->table($this->table);
+        return $builder->insert($data);
+    }
+
     public function updateBidang($data)
     {
         $builder = $this->db->table($this->table);
