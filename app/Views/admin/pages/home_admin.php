@@ -57,13 +57,13 @@
 
                                                <div class="form-group">
                                                  <label for="">Password</label>
-                                                 <input type="text" class="form-control" name="password" placeholder="Paswoord">
+                                                 <input type="text" class="form-control" name="password" placeholder="Password">
                                                </div> 
                                             </div>
                                                 <div class="modal-footer">
                                                      <input type="hidden" name="product_id" class="productID">
-                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                                                     <button type="submit" class="btn btn-primary">Ya</button>
+                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </div>
                                      </div>
                                     </div>

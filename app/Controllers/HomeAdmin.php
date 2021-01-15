@@ -31,16 +31,6 @@ class HomeAdmin extends Controller{
 
     }
 
-    public function addUser($id){
-        $model = new Users_Model;
-        $data = array(
-            'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password'),
-            'id_bidang' => $id
-        );
-        $model->saveUser($data);
-        return redirect()->to('/homeadmin');
-    }
 
     public function editBidang($id) 
     {
@@ -57,4 +47,21 @@ class HomeAdmin extends Controller{
         $model->deleteBidang($id);
         return redirect()->to('/homeadmin');
     }
+
+    public function addUser($id){
+        $model = new Users_Model;
+        $data = array(
+            'username' => $this->request->getPost('username'),
+            'password' => md5($this->request->getPost('password')),
+            'id_bidang' => $id
+        );
+        $model->saveUser($data);
+        return redirect()->to('/homeadmin');
+    }
+
+    public function getUser($id){
+        $model = new Users_Model;
+        $data['getUser'] = $model -> getUserModel();
+    }
+
 }

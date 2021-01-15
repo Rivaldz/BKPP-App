@@ -12,4 +12,14 @@ class Users_Model extends Model{
         $builder = $this->db->table($this->table);
         return $builder->insert($data);
     }
+
+    public function getUserModel($id = false){
+        if($id === false){
+            return $this->findAll();
+        
+        } else {
+            return $this->where(['id_user' => $id])->first();
+        }
+    }
+
 }
