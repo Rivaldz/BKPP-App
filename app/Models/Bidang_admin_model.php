@@ -16,15 +16,6 @@ class Bidang_admin_model extends Model{
         }
     }
 
-    public function getUser($id = false){
-        if($id === false){
-            return $this->findAll();
-        
-        } else {
-            return $this->where(['id_user' => $id])->first();
-        }
-    }
-
     public function saveBidang($data){
         $builder = $this->db->table($this->table);
         return $builder->insert($data);
@@ -42,3 +33,4 @@ class Bidang_admin_model extends Model{
         return $query;
     }
 }
+

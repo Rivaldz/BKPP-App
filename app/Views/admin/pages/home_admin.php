@@ -128,6 +128,101 @@
         </div>
     </div>
 
+    <!-- isi bidang -->
+    <br>
+    <br>
+    <button class="btn btn-danger">Tambah Isi Bidang</button>
+    <button class="btn btn-info">Edit Bagian Bidang</button>
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title">Data Isi Bidang</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="text-center">
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama Isi Bidang</th>
+                            <!-- <th>User</th> -->
+                            <th>Bagian Bidang</th>
+                        </tr>
+                    </thead> 
+                    <tbody class="text-center">
+                        <?php $no=1; foreach($getNamaBidang as $isi){?>
+                            <tr> 
+                                <td> 
+                                    <?= $no;?> 
+                                </td> 
+                                <td>
+                                    <p>Isi Bidang Ke <?=$no?></p>
+                                </td>
+                                <!-- <td>
+                                <button data-toggle="modal" data-target="#tambahUser<?=$isi['id_bidang']?>">Tambah User</button>
+                                </td> -->
+                                <td>
+                                    <div id="<?=$no?>">
+                                        <input type="radio" value="bidang A" name="<?=$no?>" >
+                                        <label for="bidang A"> Bidang A</label>
+                                    </div>
+                                    <div >
+                                        <input type="radio" value="bidang B" name="<?=$no?>" >
+                                        <label for="bidang B"> Bidang B</label>
+                                    </div>                                    
+                                    <div>
+                                        <input type="radio" value="bidang C" name="<?=$no?>" >
+                                        <label for="bidang B"> Bidang C</label>
+                                    </div>
+                                </td>
+                             </tr>
+
+                             <!-- tambah user -->
+                             
+                             <!-- end tambah user -->
+                             
+                             
+
+                            <div>
+                            
+                            </div>
+                        <?php $no++; } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <h4>Daftar Bidang Dan Isi </h4>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Bidang Binaindo</th>
+                    <th>Bidang Mutasi</th>
+                    <th>Bidang Diklat</th>
+                    <th>th value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>isi binaindo</td>
+                    <td>isi mutasi</td>
+                    <td>isi Diklat</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>isi binaindo 2</td>
+                    <td></td>
+                    <td>isi diklat2</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <!-- Modal Tambah Bidang-->
     <form action="/HomeAdmin/addBidang" method="post">
         <div class="modal fade" id="modalBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
