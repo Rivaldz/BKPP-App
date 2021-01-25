@@ -113,33 +113,4 @@
         </div>
         </div>
     </form>
-    <!-- End Modal Edit Bidang-->
-
-       <!-- Modal Delete Bidang-->
-       <!-- <form action="/HomeAdmin/delete/5" method="post">
-        <div class="modal fade" id="deleteBidangn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hapus Bidang</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-             
-               <h4>Anda Yakin Ingin Menghapus Bidang Ini?</h4>
-             
-            </div>
-            <div class="modal-footer">
-                <input type="hidden" name="product_id" class="productID">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                <button type="submit" class="btn btn-primary">Ya</button>
-            </div>
-            </div>
-        </div>
-        </div>
-    </form> -->
-    <!-- End Modal Delete Bidang-->
-
 <?= $this->endSection(); ?>
