@@ -23,7 +23,7 @@
       <div class="form-group">
         <label>Upload File</label>
         <br>
-        <input type="file" name="file" class="">
+        <input class="form-control" type="file" name="file" class="">
       </div>
 
       <div class="form-group">
