@@ -27,7 +27,7 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
-                                <button data-toggle="modal" data-target="#tambahUser<?=$isi['id_bidang']?>">Tambah User</button>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#tambahUser<?=$isi['id_bidang']?>">Tambah User</button>
                                 </td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
@@ -144,7 +144,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Isi Bidang</th>
-                            <!-- <th>User</th> -->
+                            <th>Action</th>
                             <th>Bagian Bidang</th>
                         </tr>
                     </thead> 
@@ -157,9 +157,10 @@
                                 <td>
                                     <p>Isi Bidang Ke <?=$no?></p>
                                 </td>
-                                <!-- <td>
-                                <button data-toggle="modal" data-target="#tambahUser<?=$isi['id_bidang']?>">Tambah User</button>
-                                </td> -->
+                                <td>
+                                    <button class="btn btn-info">Edit</button>
+                                    <button class="btn btn-warning">Hapus</button>
+                                </td>
                                 <td>
                                     <div id="<?=$no?>">
                                         <input type="radio" value="bidang A" name="<?=$no?>" >
