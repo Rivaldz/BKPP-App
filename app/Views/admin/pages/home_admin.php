@@ -2,6 +2,8 @@
 <?= $this->section('content'); ?>
 
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalBidang">Tambah Bidang</button>
+    <button class="btn btn-info" data-toggle="modal" data-target="#tambahUser">Tambah User</button>
+
     <div class="card">
         <div class="card-header bg-info text-white">
             <h4 class="card-title">Data Bidang</h4>
@@ -27,7 +29,7 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
-                                <button class="btn btn-info" data-toggle="modal" data-target="#tambahUser<?=$isi['id_bidang']?>">Tambah User</button>
+                                user <?= $no; ?>
                                 </td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
@@ -39,7 +41,7 @@
                              <!-- tambah user -->
                              <div>
                              <form action="/HomeAdmin/addUser/<?=$isi['id_bidang']?>" method="post">
-                                <div class="modal fade" id="tambahUser<?= $isi['id_bidang'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="tambahUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -54,6 +56,17 @@
                                                  <label for="">Username</label>
                                                  <input type="text" class="form-control" name="username" placeholder="Username">
                                                </div> 
+
+                                               <label for="">Bagian Bidang</label>
+                                               <div class="form-group">
+                                                    <div class="form-line">
+                                                        <select name="bidang" class="form-control shwo-tick" id="">
+                                                            <option value="1">Bidang Binaindo</option>
+                                                            <option value="2">Bidang Mutasi</option>
+                                                            <option value="3">Bidang Diklat</option>
+                                                        </select>
+                                                    </div>
+                                               </div>
 
                                                <div class="form-group">
                                                  <label for="">Password</label>
@@ -71,7 +84,7 @@
                             </form>
                              </div>
                              <!-- end tambah user -->
-                             
+                             <!-- modal edit bidang  -->
                              <div class="modal fade" id="modalEditBidang<?= $isi['id_bidang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -84,12 +97,26 @@
                                                 <?= csrf_field(); ?>
                                                 <div class="form-group">
                                                     <label>Nama Bidang</label>
+<<<<<<< HEAD
+                                                    <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control">
+                                                </div>          
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <select name="bidang" class="form-control shwo-tick" id="">
+                                                            <option value="1">User Bidang Binaindo</option>
+                                                            <option value="2">User Bidang Mutasi</option>
+                                                            <option value="3">User Bidang Diklat</option>
+                                                        </select>
+                                                    </div>
+                                               </div >
+=======
                                                     <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control <?= ($validation->hasError('nama'))? 'is-invalid':''; ?>"
                                                     autofocus>
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('nama'); ?>
                                                     </div>
                                                 </div>           
+>>>>>>> dc39e838e245b7ab8b3238fac72791b4487b6447
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -136,8 +163,7 @@
     <!-- isi bidang -->
     <br>
     <br>
-    <button class="btn btn-danger">Tambah Isi Bidang</button>
-    <button class="btn btn-info">Edit Bagian Bidang</button>
+    <!-- <button class="btn btn-info">Edit Bagian Bidang</button> -->
     <div class="card">
         <div class="card-header bg-primary text-white">
             <h4 class="card-title">Data Isi Bidang</h4>
@@ -149,8 +175,8 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Isi Bidang</th>
-                            <th>Action</th>
                             <th>Bagian Bidang</th>
+                            <th>Action</th>
                         </tr>
                     </thead> 
                     <tbody class="text-center">
@@ -162,12 +188,18 @@
                                 <td>
                                     <p>Isi Bidang Ke <?=$no?></p>
                                 </td>
+
                                 <td>
-                                    <button class="btn btn-info">Edit</button>
-                                    <button class="btn btn-warning">Hapus</button>
-                                </td>
-                                <td>
-                                    <div id="<?=$no?>">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select name="bidang" class="form-control shwo-tick" id="" style="width:auto;">
+                                                <option value="1">Bidang Binaindo</option>
+                                                <option value="2">Bidang Mutasi</option>
+                                                <option value="3">Bidang Diklat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div id="<?=$no?>">
                                         <input type="radio" value="bidang A" name="<?=$no?>" >
                                         <label for="bidang A"> Bidang A</label>
                                     </div>
@@ -177,8 +209,12 @@
                                     </div>                                    
                                     <div>
                                         <input type="radio" value="bidang C" name="<?=$no?>" >
-                                        <label for="bidang B"> Bidang C</label>
+                                        <label for="bidang B"> Bidang C</label> -->
                                     </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info">Edit</button>
+                                    <button class="btn btn-warning">Hapus</button>
                                 </td>
                              </tr>
 
@@ -194,6 +230,8 @@
                         <?php $no++; } ?>
                     </tbody>
                 </table>
+                <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Isi Bidang</button>
+                <button class="btn btn-success">Simpan Perubahan</button>
             </div>
         </div>
     </div>
@@ -209,7 +247,6 @@
                     <th>Bidang Binaindo</th>
                     <th>Bidang Mutasi</th>
                     <th>Bidang Diklat</th>
-                    <th>th value</th>
                 </tr>
             </thead>
             <tbody>
@@ -217,13 +254,11 @@
                     <td>isi binaindo</td>
                     <td>isi mutasi</td>
                     <td>isi Diklat</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>isi binaindo 2</td>
                     <td></td>
                     <td>isi diklat2</td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -264,8 +299,33 @@
         </div>
         </div>
     </form>
-<<<<<<< HEAD
-=======
 
->>>>>>> 557c3ec15426e0f2f50e3443be9d604cd6cee036
+    <!-- Tambah Isi Bidang -->
+    <form action="" method="post">
+        <div class="modal fade" id="modalIsiBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Isi Bidang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+             
+                <div class="form-group">
+                    <label>Nama Isi Bidang</label>
+                    <input type="text" class="form-control" name="nama" placeholder="Nama Isi Bidang">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
+
 <?= $this->endSection(); ?>

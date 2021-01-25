@@ -19,7 +19,8 @@
 <body>
   <div class="">
 
-    <form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
+	<p>Silahkan download template excel <a href="">Disni</a> </p>
+	<form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
       <div class="form-group">
         <label>Upload File</label>
         <br>
@@ -48,7 +49,9 @@
             <td>BKPP.xlsx</td> 
             <td>1 MB</td>
             <td>25 januari 2021</td>
-            <td></td>
+            <td>
+				<button class="btn btn-info">Download</button>
+			</td>
         </tr>
     </table>
 	</thead>
