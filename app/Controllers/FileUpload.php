@@ -8,6 +8,10 @@ class FileUpload extends Controller
 
     public function index() 
 	{
+        $data = [
+            'judul'=>'Upload file',
+            'file' =>''
+        ];
         return view('home');
     }
     
@@ -40,6 +44,7 @@ class FileUpload extends Controller
             $save = $db->insert($data);
             print_r('File has successfully uploaded');        
         }
+        return redirect()->to('/index');
     }
 
 }
