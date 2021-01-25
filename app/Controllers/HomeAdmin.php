@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Bidang_admin_model;
+use App\Models\Users_Model;
 
 class HomeAdmin extends Controller{
 
@@ -38,12 +39,10 @@ class HomeAdmin extends Controller{
             return redirect()->to('/homeadmin')->withInput()->with('validation', $validation);
         }
         $model->saveBidang($data);
-        echo '<script>
-                 alert("Sukses Tambah Data Barang");
-                 window.location="'.base_url('homeadmin').'"
-              </script>';
+        return redirect()->to('/homeadmin');
 
     }
+
 
     public function editBidang($id) 
     {
@@ -71,4 +70,21 @@ class HomeAdmin extends Controller{
         $model->deleteBidang($id);
         return redirect()->to('/homeadmin');
     }
+
+    public function addUser($id){
+        $model = new Users_Model;
+        $data = array(
+            'username' => $this->request->getPost('username'),
+            'password' => md5($this->request->getPost('password')),
+            'id_bidang' => $id
+        );
+        $model->saveUser($data);
+        return redirect()->to('/homeadmin');
+    }
+
+    public function getUser($id){
+        $model = new Users_Model;
+        $data['getUser'] = $model -> getUserModel();
+    }
+
 }

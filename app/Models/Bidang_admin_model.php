@@ -33,3 +33,4 @@ class Bidang_admin_model extends Model{
         return $query;
     }
 }
+
