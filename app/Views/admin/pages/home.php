@@ -24,7 +24,7 @@
       <div class="form-group">
         <label>Upload File</label>
         <br>
-        <input class="form-control" type="file" name="file" class="">
+        <input class="custom-file-inoput" type="file" name="file" class="">
       </div>
 
       <div class="form-group">
@@ -44,7 +44,10 @@
 			<th>Ukuran File</th>
 			<th>Tanggal Upload</th>
 			<th>Download</th>
-	    <tr>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
             <td>1</td>
             <td>BKPP.xlsx</td> 
             <td>1 MB</td>
@@ -53,9 +56,8 @@
 				<button class="btn btn-info">Download</button>
 			</td>
         </tr>
+	</tbody>
     </table>
-	</thead>
-	<tbody>
 <?php
 $no=null;
 $dir = "uploaded_file/";
