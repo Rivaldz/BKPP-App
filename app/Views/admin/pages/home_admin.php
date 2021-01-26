@@ -29,7 +29,12 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
-                                user <?= $no; ?>
+                                <?php foreach($getUser0 as $userb){
+                                    if ($isi['id_bidang'] == $userb['id_bidang']) {
+                                    ?>
+                                    <?=$userb['username'] ?>
+                                <?php } } ?>
+                                <!-- user <?= $no; ?> -->
                                 </td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
@@ -60,10 +65,11 @@
                                                <label for="">Bagian Bidang</label>
                                                <div class="form-group">
                                                     <div class="form-line">
-                                                        <select name="bidang" class="form-control shwo-tick" id="">
-                                                            <option value="1">Bidang Binaindo</option>
-                                                            <option value="2">Bidang Mutasi</option>
-                                                            <option value="3">Bidang Diklat</option>
+                                                        <select id="t_user" name="t_user" class="form-control shwo-tick">
+                                                        <?php foreach($getNamaBidang as $gnb){
+                                                         ?> 
+                                                            <option value="<?=$gnb['id_bidang']?>"><?=$gnb['nama_bidang']?></option>
+                                                        <?php } ?>
                                                         </select>
                                                     </div>
                                                </div>
@@ -97,9 +103,8 @@
                                                 <?= csrf_field(); ?>
                                                 <div class="form-group">
                                                     <label>Nama Bidang</label>
-<<<<<<< HEAD
                                                     <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control">
-                                                </div>          
+                                                </div> 
                                                 <div class="form-group">
                                                     <div class="form-line">
                                                         <select name="bidang" class="form-control shwo-tick" id="">
@@ -109,14 +114,6 @@
                                                         </select>
                                                     </div>
                                                </div >
-=======
-                                                    <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control <?= ($validation->hasError('nama'))? 'is-invalid':''; ?>"
-                                                    autofocus>
-                                                    <div class="invalid-feedback">
-                                                        <?= $validation->getError('nama'); ?>
-                                                    </div>
-                                                </div>           
->>>>>>> dc39e838e245b7ab8b3238fac72791b4487b6447
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -192,24 +189,13 @@
                                 <td>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <select name="bidang" class="form-control shwo-tick" id="" style="width:auto;">
+                                            <select name="bagianBidang" id="idBidang" class="form-control shwo-tick" id="" style="width:auto;">
+ 
                                                 <option value="1">Bidang Binaindo</option>
                                                 <option value="2">Bidang Mutasi</option>
                                                 <option value="3">Bidang Diklat</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <!-- <div id="<?=$no?>">
-                                        <input type="radio" value="bidang A" name="<?=$no?>" >
-                                        <label for="bidang A"> Bidang A</label>
-                                    </div>
-                                    <div >
-                                        <input type="radio" value="bidang B" name="<?=$no?>" >
-                                        <label for="bidang B"> Bidang B</label>
-                                    </div>                                    
-                                    <div>
-                                        <input type="radio" value="bidang C" name="<?=$no?>" >
-                                        <label for="bidang B"> Bidang C</label> -->
                                     </div>
                                 </td>
                                 <td>
@@ -278,16 +264,11 @@
             <div class="modal-body">
              
                 <div class="form-group">
-<<<<<<< HEAD
                     <label>Nama Bidang</label>
                     <input type="text" class="form-control <?= ($validation->hasError('nama'))? 'is-invalid': ''; ?>" name="nama" placeholder="Product Name" >
                     <div class="invalid-feedback">
                             <?= $validation->getError('nama'); ?>
                     </div>
-=======
-                    <label>Product Name</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Nama Bidang">
->>>>>>> 8d961dfb0c63f47161550f53fe4c98bdf986ff47
                 </div>
 
             </div>
