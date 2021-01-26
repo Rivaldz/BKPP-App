@@ -1,41 +1,48 @@
 <?= $this->extend('admin/layouts/layout'); ?>
 
 <?= $this->section('content'); ?>
-<!doctype html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Codeigniter 4 File Upload - positronx.io</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <style>
-    .container {
-      max-width: 500px;
-    }
-  </style>
-</head>
+	<h5>Silahkan download template excel <a href="">Disini!</a></h5>
+	<form action="fileupload/upload" method="post">
+		<div class="form-group">
+			<input class="form-control-file border" type="file" name="file" id="file">
+			<!-- <label for="file">Masukkan file excel</label> -->
+		</div>
+		<button type="submit" class="btn btn-success">Upload</button>
+	</form>
 
-<body>
-  <div class="">
+	<table class="table mt-4">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Nama File</th>
+				<th>Ukuran file</th>
+				<th>Tanggal Upload</th>
+				<th>Aksi</th>
+			</tr>
+		</thead>
+		<tbody>
 
+<<<<<<< HEAD
 	<p>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disni</a> </p>
+=======
+		</tbody>
+	</table>
+	<!-- <p>Silahkan download template excel <a href="">Disni</a> </p>
+>>>>>>> ae9e0e89ca8b1d3d555b9b97b983f1773f5f1153
 	<form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
       <div class="form-group">
         <label>Upload File</label>
         <br>
-        <input type="file" name="file" class="">
+        <input class="custom-file-inoput" type="file" name="file" class="">
       </div>
 
       <div class="form-group">
         <button type="submit" class="btn btn-danger">Upload</button>
       </div>
-    </form>
+    </form> -->
 
-  </div>
-</body>
-
-<div class="table-responsive">
+<!-- <div class="table-responsive">
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
@@ -44,7 +51,10 @@
 			<th>Ukuran File</th>
 			<th>Tanggal Upload</th>
 			<th>Download</th>
-	    <tr>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
             <td>1</td>
             <td>BKPP.xlsx</td> 
             <td>1 MB</td>
@@ -53,9 +63,8 @@
 				<button class="btn btn-info">Download</button>
 			</td>
         </tr>
+	</tbody>
     </table>
-	</thead>
-	<tbody>
 <?php
 $no=null;
 $dir = "uploaded_file/";
@@ -87,5 +96,5 @@ if(isset($daftar_file)){
 
 
 </html>	
-</form>
+</form> -->
 <?= $this->endSection(); ?>
