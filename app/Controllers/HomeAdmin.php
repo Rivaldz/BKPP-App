@@ -76,7 +76,7 @@ class HomeAdmin extends Controller{
         $data = array(
             'username' => $this->request->getPost('username'),
             'password' => md5($this->request->getPost('password')),
-            'id_bidang' => $id
+            'id_bidang' => $this->request->getPost('t_user')
         );
         $model->saveUser($data);
         return redirect()->to('/homeadmin');
