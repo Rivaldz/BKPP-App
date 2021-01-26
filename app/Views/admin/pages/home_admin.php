@@ -29,7 +29,12 @@
                                     <?= $isi['nama_bidang']?>
                                 </td>
                                 <td>
-                                user <?= $no; ?>
+                                <?php foreach($getUser0 as $userb){
+                                    if ($isi['id_bidang'] == $userb['id_bidang']) {
+                                    ?>
+                                    <?=$userb['username'] ?>
+                                <?php } } ?>
+                                <!-- user <?= $no; ?> -->
                                 </td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>

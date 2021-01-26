@@ -32,5 +32,6 @@ class Bidang_admin_model extends Model{
         $query = $this->db->table('nama_bidang_tb')->delete(array('id_bidang' => $id));
         return $query;
     }
+    
 }
 

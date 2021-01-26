@@ -14,8 +14,10 @@ class HomeAdmin extends Controller{
 
     public function index(){
         $model = new Bidang_admin_model;
+        $modelUser = new Users_Model;
         $data['title'] = 'Data Bidang';
         $data['getNamaBidang'] = $model->getNamaBidang();
+        $data['getUser0'] = $modelUser->getUserModel();
         $data['validation'] = \Config\Services::validation();
         
         return view('admin/pages/home_admin',$data);
