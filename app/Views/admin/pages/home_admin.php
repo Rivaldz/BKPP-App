@@ -97,6 +97,7 @@
                                                 <?= csrf_field(); ?>
                                                 <div class="form-group">
                                                     <label>Nama Bidang</label>
+<<<<<<< HEAD
                                                     <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control">
                                                 </div>          
                                                 <div class="form-group">
@@ -108,6 +109,14 @@
                                                         </select>
                                                     </div>
                                                </div >
+=======
+                                                    <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control <?= ($validation->hasError('nama'))? 'is-invalid':''; ?>"
+                                                    autofocus>
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('nama'); ?>
+                                                    </div>
+                                                </div>           
+>>>>>>> dc39e838e245b7ab8b3238fac72791b4487b6447
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -146,6 +155,7 @@
                         <?php $no++; } ?>
                     </tbody>
                 </table>
+              
             </div>
         </div>
     </div>
@@ -260,7 +270,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Bidang</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -268,8 +278,16 @@
             <div class="modal-body">
              
                 <div class="form-group">
+<<<<<<< HEAD
+                    <label>Nama Bidang</label>
+                    <input type="text" class="form-control <?= ($validation->hasError('nama'))? 'is-invalid': ''; ?>" name="nama" placeholder="Product Name" >
+                    <div class="invalid-feedback">
+                            <?= $validation->getError('nama'); ?>
+                    </div>
+=======
                     <label>Product Name</label>
                     <input type="text" class="form-control" name="nama" placeholder="Nama Bidang">
+>>>>>>> 8d961dfb0c63f47161550f53fe4c98bdf986ff47
                 </div>
 
             </div>
