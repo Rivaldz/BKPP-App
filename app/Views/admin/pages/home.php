@@ -38,7 +38,13 @@
 		</div>
 	</div>
 
+<<<<<<< HEAD
 	<!-- <p>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disni</a> </p>
+=======
+		</tbody>
+	</table>
+	<!-- <p>Silahkan download template excel <a href="">Disni</a> </p>
+>>>>>>> 1f7809b57491e0ff19eb810dba86117966d530ba
 	<form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
       <div class="form-group">
         <label>Upload File</label>

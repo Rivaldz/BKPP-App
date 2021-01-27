@@ -22,4 +22,10 @@ class Users_Model extends Model{
         }
     }
 
+    public function editUser(){
+        $builder = $this->db->table($this->table);
+        $builder->where('id_user', $data['id_user']);
+        return $builder->update($data);    
+    }
+
 }
