@@ -3,6 +3,8 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Bidang_admin_model;
 use App\Models\Users_Model;
+use App\Models\DAtaBidang_Model;
+
 
 class HomeAdmin extends Controller{
 
@@ -87,6 +89,16 @@ class HomeAdmin extends Controller{
     public function getUser($id){
         $model = new Users_Model;
         $data['getUser'] = $model -> getUserModel();
+    }
+
+    public function addDataBidang(){
+        $model = new DataBidang_Model;
+        $data = array(
+            'nama_isi_bidang' => $this->request->getPost('namaDataBidang'),
+            'id_bidang'       => $this->request->getPost('datbidBagianBidang')
+        );
+        $model->addDataBidang($data);
+        return redirect()->to('/homeadmin');
     }
 
 }

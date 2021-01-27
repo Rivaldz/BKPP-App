@@ -90,6 +90,7 @@
                             </form>
                              </div>
                              <!-- end tambah user -->
+
                              <!-- modal edit bidang  -->
                              <div class="modal fade" id="modalEditBidang<?= $isi['id_bidang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -163,13 +164,13 @@
         </div>
     </div>
 
-    <!-- isi bidang -->
+    <!-- DATA BIDANG -->
     <br>
     <br>
     <!-- <button class="btn btn-info">Edit Bagian Bidang</button> -->
     <div class="card">
         <div class="card-header bg-primary text-white">
-            <h4 class="card-title">Data Isi Bidang</h4>
+            <h4 class="card-title">Data Bidang</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -177,7 +178,7 @@
                     <thead class="text-center">
                         <tr>
                             <th>No.</th>
-                            <th>Nama Isi Bidang</th>
+                            <th>Nama Data Bidang</th>
                             <th>Bagian Bidang</th>
                             <th>Action</th>
                         </tr>
@@ -222,7 +223,7 @@
                         <?php $no++; } ?>
                     </tbody>
                 </table>
-                <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Isi Bidang</button>
+                <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Data Bidang</button>
                 <button class="btn btn-success">Simpan Perubahan</button>
             </div>
         </div>
@@ -231,7 +232,7 @@
     <br>
     <br>
     <br>
-    <h4>Daftar Bidang Dan Isi </h4>
+    <h4>Daftar Bidang Dan Data Bidang </h4>
     <div>
         <table class="table table-bordered">
             <thead>
@@ -287,8 +288,8 @@
         </div>
     </form>
 
-    <!-- Tambah Isi Bidang -->
-    <form action="" method="post">
+    <!-- Tambah Data Bidang -->
+    <form action="/HomeAdmin/addDataBidang" method="post">
         <div class="modal fade" id="modalIsiBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -299,12 +300,22 @@
                 </button>
             </div>
             <div class="modal-body">
-             
+
+                <label for="">Bagian Bidang</label>
                 <div class="form-group">
-                    <label>Nama Isi Bidang</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Nama Isi Bidang">
+                    <div class="form-line">
+                        <select id="datbidBagianBidang" name="datbidBagianBidang" class="form-control shwo-tick">
+                          <?php foreach($getNamaBidang as $gnb){?> 
+                          <option value="<?=$gnb['id_bidang']?>"><?=$gnb['nama_bidang']?></option>
+                           <?php } ?>
+                        </select>
+                    </div>
                 </div>
 
+                <div class="form-group">
+                    <label>Nama Isi Bidang</label>
+                    <input type="text" class="form-control" name="namaDataBidang" placeholder="Nama Data Bidang">
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -314,5 +325,4 @@
         </div>
         </div>
     </form>
-
 <?= $this->endSection(); ?>
