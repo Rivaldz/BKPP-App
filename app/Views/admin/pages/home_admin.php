@@ -205,21 +205,11 @@
                                     <button class="btn btn-warning">Hapus</button>
                                 </td>
                              </tr>
-
-                             <!-- tambah user -->
-                             
-                             <!-- end tambah user -->
-                             
-                             
-
-                            <div>
-                            
-                            </div>
                         <?php $no++; } ?>
                     </tbody>
                 </table>
                 <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Data Bidang</button>
-                <button class="btn btn-success">Simpan Perubahan</button>
+                <!-- <button class="btn btn-success">Simpan Perubahan</button> -->
             </div>
         </div>
     </div>
@@ -232,22 +222,27 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Bidang Binaindo</th>
-                    <th>Bidang Mutasi</th>
-                    <th>Bidang Diklat</th>
+                <?php $no=1; foreach($getNamaBidang as $showdat){?>
+                    <th> <?= $no ?> <?=$showdat['nama_bidang'] ?></th>
+                <?php $no++; } ?>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($getBidangData as $showbd){ 
+                     ?>
+                    <?php foreach($getNamaBidang as $namaTr){ 
+                        if ($showbd['id_bidang'] == $namaTr['id_bidang']) {
+                       ?>
                 <tr>
-                    <td>isi binaindo</td>
-                    <td>isi mutasi</td>
-                    <td>isi Diklat</td>
+                    <?php foreach(uuuu){
+                        if ($showbd['id_bidang'] == $namaTr['id_bidnag']) {
+                        # code...
+                    ?>
+                    <td> <?= $showbd['nama_isi_bidang'] ?></td>
+                    <?php }} ?>
                 </tr>
-                <tr>
-                    <td>isi binaindo 2</td>
-                    <td></td>
-                    <td>isi diklat2</td>
-                </tr>
+                <?php }
+            }} ?>
             </tbody>
         </table>
     </div>
