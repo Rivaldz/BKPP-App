@@ -3,9 +3,9 @@
 <?= $this->section('content'); ?>
 
 	<h5>Silahkan download template excel <a href="">Disini!</a></h5>
-	<form action="fileupload/upload" method="post">
+	<form action="home/upload" method="post" enctype="multipart/form-data">
 		<div class="form-group">
-			<input class="form-control-file border" type="file" name="file" id="file">
+			<input class="form-control-file border" type="file" name="files" id="files">
 			<!-- <label for="file">Masukkan file excel</label> -->
 		</div>
 		<button type="submit" class="btn btn-success">Upload</button>
