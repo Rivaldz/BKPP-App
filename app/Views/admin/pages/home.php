@@ -2,34 +2,43 @@
 
 <?= $this->section('content'); ?>
 
-	<h5>Silahkan download template excel <a href="">Disini!</a></h5>
-	<form action="home/upload" method="post" enctype="multipart/form-data">
-		<div class="form-group">
-			<input class="form-control-file border" type="file" name="files" id="files">
-			<!-- <label for="file">Masukkan file excel</label> -->
+	<h5>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disini!</a></h5>
+	<div class="card">
+		<div class="card-body">
+			<form action="home/upload" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<input class="form-control-file border <?= ($validation->hasError('files'))?'is-invalid':''; ?>" type="file" name="files" id="files">
+					<div class="invalid-feedback">
+						<?= $validation->getError('files'); ?>
+					</div>
+					<!-- <label for="file">Masukkan file excel</label> -->
+				</div>
 		</div>
-		<button type="submit" class="btn btn-success">Upload</button>
-	</form>
+		<div class="card-footer">
+				<button type="submit" class="btn btn-success">Upload</button>
+			</form>
+		</div>
+	</div>
+	<div class="card mt-5">
+		<div class="card-body">
+			<table class="table mt-4">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nama File</th>
+						<th>Ukuran file</th>
+						<th>Tanggal Upload</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
 
-	<table class="table mt-4">
-		<thead>
-			<tr>
-				<th>No</th>
-				<th>Nama File</th>
-				<th>Ukuran file</th>
-				<th>Tanggal Upload</th>
-				<th>Aksi</th>
-			</tr>
-		</thead>
-		<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-<<<<<<< HEAD
-	<p>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disni</a> </p>
-=======
-		</tbody>
-	</table>
-	<!-- <p>Silahkan download template excel <a href="">Disni</a> </p>
->>>>>>> ae9e0e89ca8b1d3d555b9b97b983f1773f5f1153
+	<!-- <p>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disni</a> </p>
 	<form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
       <div class="form-group">
         <label>Upload File</label>

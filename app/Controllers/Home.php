@@ -12,6 +12,7 @@ class Home extends BaseController
 	{
 		$data = [
 			'judul' => 'Home',
+			'validation'=>\Config\Services::validation()
 		];
 		return view('admin/pages/home', $data);
 	}
