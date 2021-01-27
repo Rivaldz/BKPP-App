@@ -108,9 +108,15 @@
                                                 <div class="form-group">
                                                     <div class="form-line">
                                                         <select name="bidang" class="form-control shwo-tick" id="">
-                                                            <option value="1">User Bidang Binaindo</option>
-                                                            <option value="2">User Bidang Mutasi</option>
-                                                            <option value="3">User Bidang Diklat</option>
+                                                        <?php foreach($getUser0 as $usr){
+                                                            if ($isi['id_bidang'] == $usr['id_bidang']) {
+                                                        ?> 
+                                                            <option value="<?= $usr['id_bidang'] ?>" selected><?=$usr['username']?></option>
+                                                        <?php }else {
+                                                            # code...
+                                                        ?>
+										                    <option value="<?= $usr['id_bidang'] ?>"><?= $usr['username'] ?></option>
+                                                        <?php }} ?>
                                                         </select>
                                                     </div>
                                                </div >

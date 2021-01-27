@@ -23,13 +23,9 @@
 		</thead>
 		<tbody>
 
-<<<<<<< HEAD
-	<p>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disni</a> </p>
-=======
 		</tbody>
 	</table>
 	<!-- <p>Silahkan download template excel <a href="">Disni</a> </p>
->>>>>>> ae9e0e89ca8b1d3d555b9b97b983f1773f5f1153
 	<form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
       <div class="form-group">
         <label>Upload File</label>
