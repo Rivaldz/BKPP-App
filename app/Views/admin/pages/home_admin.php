@@ -184,26 +184,21 @@
                         </tr>
                     </thead> 
                     <tbody class="text-center">
-                        <?php $no=1; foreach($getNamaBidang as $isi){?>
+                        <?php $no=1; foreach($getBidangData as $gbd){?>
                             <tr> 
                                 <td> 
                                     <?= $no;?> 
                                 </td> 
                                 <td>
-                                    <p>Isi Bidang Ke <?=$no?></p>
+                                    <?= $gbd['nama_isi_bidang']?>  
                                 </td>
 
                                 <td>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select name="bagianBidang" id="idBidang" class="form-control shwo-tick" id="" style="width:auto;">
- 
-                                                <option value="1">Bidang Binaindo</option>
-                                                <option value="2">Bidang Mutasi</option>
-                                                <option value="3">Bidang Diklat</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                        <?php foreach($getNamaBidang as $namaBid){ 
+                                            if ($namaBid['id_bidang'] == $gbd['id_bidang']) {
+                                             ?>
+                                             <?= $namaBid['nama_bidang'] ?>
+                                        <?php }} ?>
                                 </td>
                                 <td>
                                     <button class="btn btn-info">Edit</button>
