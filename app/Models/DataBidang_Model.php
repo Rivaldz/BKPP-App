@@ -15,5 +15,13 @@ class DataBidang_Model extends Model
         return $builder->insert($data);
 
     }
+
+    public function getDataBidang($id = false){
+        if ($id === false) {
+            return $this->findAll();
+        } else {
+            return $this->where(['id_isi_bidang' => $id])->first();
+        }
+    }
     
 }

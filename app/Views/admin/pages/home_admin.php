@@ -184,47 +184,32 @@
                         </tr>
                     </thead> 
                     <tbody class="text-center">
-                        <?php $no=1; foreach($getNamaBidang as $isi){?>
+                        <?php $no=1; foreach($getBidangData as $gbd){?>
                             <tr> 
                                 <td> 
                                     <?= $no;?> 
                                 </td> 
                                 <td>
-                                    <p>Isi Bidang Ke <?=$no?></p>
+                                    <?= $gbd['nama_isi_bidang']?>  
                                 </td>
 
                                 <td>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select name="bagianBidang" id="idBidang" class="form-control shwo-tick" id="" style="width:auto;">
- 
-                                                <option value="1">Bidang Binaindo</option>
-                                                <option value="2">Bidang Mutasi</option>
-                                                <option value="3">Bidang Diklat</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                        <?php foreach($getNamaBidang as $namaBid){ 
+                                            if ($namaBid['id_bidang'] == $gbd['id_bidang']) {
+                                             ?>
+                                             <?= $namaBid['nama_bidang'] ?>
+                                        <?php }} ?>
                                 </td>
                                 <td>
                                     <button class="btn btn-info">Edit</button>
                                     <button class="btn btn-warning">Hapus</button>
                                 </td>
                              </tr>
-
-                             <!-- tambah user -->
-                             
-                             <!-- end tambah user -->
-                             
-                             
-
-                            <div>
-                            
-                            </div>
                         <?php $no++; } ?>
                     </tbody>
                 </table>
                 <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Data Bidang</button>
-                <button class="btn btn-success">Simpan Perubahan</button>
+                <!-- <button class="btn btn-success">Simpan Perubahan</button> -->
             </div>
         </div>
     </div>
@@ -237,22 +222,27 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Bidang Binaindo</th>
-                    <th>Bidang Mutasi</th>
-                    <th>Bidang Diklat</th>
+                <?php $no=1; foreach($getNamaBidang as $showdat){?>
+                    <th> <?= $no ?> <?=$showdat['nama_bidang'] ?></th>
+                <?php $no++; } ?>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($getBidangData as $showbd){ 
+                     ?>
+                    <?php foreach($getNamaBidang as $namaTr){ 
+                        if ($showbd['id_bidang'] == $namaTr['id_bidang']) {
+                       ?>
                 <tr>
-                    <td>isi binaindo</td>
-                    <td>isi mutasi</td>
-                    <td>isi Diklat</td>
+                    <?php foreach(uuuu){
+                        if ($showbd['id_bidang'] == $namaTr['id_bidnag']) {
+                        # code...
+                    ?>
+                    <td> <?= $showbd['nama_isi_bidang'] ?></td>
+                    <?php }} ?>
                 </tr>
-                <tr>
-                    <td>isi binaindo 2</td>
-                    <td></td>
-                    <td>isi diklat2</td>
-                </tr>
+                <?php }
+            }} ?>
             </tbody>
         </table>
     </div>
