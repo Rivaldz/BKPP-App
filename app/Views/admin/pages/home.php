@@ -2,31 +2,59 @@
 
 <?= $this->section('content'); ?>
 
-	<h5>Silahkan download template excel <a href="">Disini!</a></h5>
-	<form action="home/upload" method="post" enctype="multipart/form-data">
-		<div class="form-group">
-			<input class="form-control-file border" type="file" name="files" id="files">
-			<!-- <label for="file">Masukkan file excel</label> -->
+	<h5>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disini!</a></h5>
+	<div class="card">
+		<div class="card-body">
+			<form action="/home/upload" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<input class="form-control-file border <?= ($validation->hasError('files'))?'is-invalid':''; ?>" type="file" name="files" id="files">
+					<div class="invalid-feedback">
+						<?= $validation->getError('files'); ?>
+					</div>
+					<!-- <label for="file">Masukkan file excel</label> -->
+				</div>
 		</div>
-		<button type="submit" class="btn btn-success">Upload</button>
-	</form>
+		<div class="card-footer">
+				<button type="submit" class="btn btn-success">Upload</button>
+			</form>
+		</div>
+	</div>
+	<div class="card mt-5">
+		<div class="card-body">
+			<table class="table table-responsive mt-4">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nama File</th>
+						<th>Tipe File</th>
+						<th>Ukuran File</th>
+						<th>Tanggal Upload</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php
+				$index =1; 
+				foreach ($dataFile as $file):?>
+					<tr>
+						<td><?= $index++; ?></td>
+						<td><?= $file['name']; ?></td>
+						<td><?= $file['type']; ?></td>
+						<td><?= $file['size']; ?></td>
+						<td><?= $file['created_at']; ?></td>
+						<td><a href="" class="btn btn-primary">Download</a></td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-	<table class="table mt-4">
-		<thead>
-			<tr>
-				<th>No</th>
-				<th>Nama File</th>
-				<th>Ukuran file</th>
-				<th>Tanggal Upload</th>
-				<th>Aksi</th>
-			</tr>
-		</thead>
-		<tbody>
-
+	<!-- <p>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disni</a> </p>
 		</tbody>
 	</table>
 	<!-- <p>Silahkan download template excel <a href="">Disni</a> </p>
-	<form method="post" action="<?php echo base_url('FileUpload/upload');?>" enctype="multipart/form-data">
+	<form method="post" action="" enctype="multipart/form-data">
       <div class="form-group">
         <label>Upload File</label>
         <br>

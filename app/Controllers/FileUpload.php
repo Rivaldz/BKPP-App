@@ -11,24 +11,24 @@ class FileUpload extends Controller
         $this->fileModel = new FileModel();
     }
 
-    public function index() 
-	{
-        $data = [
-            'judul'=>'Upload file',
-            'file' =>''
-        ];
-        return view('admin/pages/home', $data);
-    }
+    // public function index() 
+	// {
+    //     $data = [
+    //         'judul'=>'Upload file',
+    //         'file' =>''
+    //     ];
+    //     return view('admin/pages/home', $data);
+    // }
 
-    public function uploadFile()
-    {
-        $namaFile = $this->request->getFile('file');
+    // public function uploadFile()
+    // {
+    //     $namaFile = $this->request->getFile('file');
 
-        $this->fileModel->save([
-            'nama_file' => $namaFile
-        ]);
-        return redirect()->to('/fileupload');
-    }
+    //     $this->fileModel->save([
+    //         'nama_file' => $namaFile
+    //     ]);
+    //     return redirect()->to('/fileupload');
+    // }
     
 
     // function upload() { 

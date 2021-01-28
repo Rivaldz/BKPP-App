@@ -12,33 +12,37 @@ class Home extends BaseController
 	{
 		$data = [
 			'judul' => 'Home',
+			'validation'=>\Config\Services::validation(),
+			'dataFile' => $this->fileModel->findAll()
 		];
 		return view('admin/pages/home', $data);
 	}
 
 	public function upload()
 	{
-		helper(['form', 'url']);
-		if (!$this->validate([
-			'files' => [
-				'rules' => 'uploaded[files]|ext_in[files,xls,xlsx,xlsb,xlsm,xlt,xltx,xltm,xla,xlam,xlm,csv]',
-				'errors'=> [
-					'uploaded'=>'{field} tidak boleh kosong!',
-					'ext_in'=>'{field} tidak cocok'
-				]
-			]
-		])) {
-			$validation = \Config\Services::validation();
-			return redirect()->to('/home')->withInput()->with('validation', $validation);
-		}
+		// helper(['form', 'url']);
+		// if (!$this->validate([
+		// 	'files' => [
+		// 		'rules' => 'uploaded[files]|ext_in[files,xls,xlsx,xlsb,xlsm,xlt,xltx,xltm,xla,xlam,xlm,csv]',
+		// 		'errors'=> [
+		// 			'uploaded'=>'{field} tidak boleh kosong!',
+		// 			'ext_in'=>'{field} tidak cocok'
+		// 		]
+		// 	]
+		// ])) {
+		// 	$validation = \Config\Services::validation();
+		// 	return redirect()->to('/home')->withInput()->with('validation', $validation);
+		// }
 		$files = $this->request->getFile('files');
 		$namaFile = $files->getName();
-		$tipeFile = $files->getClientMimeType();
+		$tipeFile = $files->getClientExtension();
+		$sizeFile = $files->getSize();
 		$files->move('uploads');
 
 		$this->fileModel->save([
 			'name'=>$namaFile,
-			'type'=>$tipeFile
+			'type'=>$tipeFile,
+			'size'=>$sizeFile
 		]);
 		return redirect()->to('/home');
 		// helper(['form', 'url']);
