@@ -3,7 +3,7 @@
 <div>
     <div class="card">
         <div class="card-header bg-primary text-white">
-            <h4 class="card-title">Data Bidang</h4>
+            <h4 class="card-title">Data User</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -42,7 +42,7 @@
                     <?php $i++;} ?>
                     </tbody>
                 </table>
-                <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Data Bidang</button>
+                <button class="btn btn-danger" data-toggle = "modal" data-target="#editUser">Tambah User</button>
                 <!-- <button class="btn btn-success">Simpan Perubahan</button> -->
             </div>
         </div>

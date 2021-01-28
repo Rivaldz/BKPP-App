@@ -3,7 +3,7 @@
 
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalBidang">Tambah Bidang</button>
     <button class="btn btn-info" data-toggle="modal" data-target="#tambahUser">Tambah User</button>
-    <button class="btn btn-info">Lihat User</button>
+    <a class="btn btn-success" href="/User">Lihat User</a>
 
     <div class="card">
         <div class="card-header bg-info text-white">
