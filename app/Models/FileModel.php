@@ -4,11 +4,15 @@ use CodeIgniter\Model;
 
 class FileModel extends Model
 {
-    protected $table      = 'files_tb';
+    protected $table      = 'files';
     protected $primaryKey = 'id_file';
 
-    protected $allowedFields = ['name', 'type', 'size'];
+    protected $allowedFields = ['nama_file', 'tipe_file', 'ukuran_file'];
 
     protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
+
+    // public function insertFile($data)
+    // {
+        
+    // }
 }

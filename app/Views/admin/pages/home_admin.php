@@ -234,7 +234,7 @@
                         if ($showbd['id_bidang'] == $namaTr['id_bidang']) {
                        ?>
                 <tr>
-                    <?php foreach(uuuu){
+                    <?php foreach(){
                         if ($showbd['id_bidang'] == $namaTr['id_bidnag']) {
                         # code...
                     ?>

@@ -33,18 +33,56 @@ class Home extends BaseController
 		// 	$validation = \Config\Services::validation();
 		// 	return redirect()->to('/home')->withInput()->with('validation', $validation);
 		// }
-		$files = $this->request->getFile('files');
-		$namaFile = $files->getName();
-		$tipeFile = $files->getClientExtension();
-		$sizeFile = $files->getSize();
-		$files->move('uploads');
+		// $files = $this->request->getFile('files');
+		// $namaFile = $files->getName();
+		// $tipeFile = $files->getClientExtension();
+		// $sizeFile = $files->getSize();
+		// $files->move('uploads',$namaFile);
 
-		$this->fileModel->save([
-			'name'=>$namaFile,
-			'type'=>$tipeFile,
-			'size'=>$sizeFile
-		]);
-		return redirect()->to('/home');
+		helper(['form', 'url']);
+         
+        $database = \Config\Database::connect();
+        $db = $database->table('files');
+    
+        $input = $this->validate([
+            'file' => [
+                'uploaded[file]',
+                // 'mime_in[file,image/jpg,image/jpeg,image/png]',
+                'max_size[file,1024]',
+            ]
+        ]);
+    
+        if (!$input) {
+            print_r('Choose a valid file');
+        } else {
+            $img = $this->request->getFile('files');
+            $img->move(WRITEPATH . 'uploads');
+    
+            $data = [
+               'nama_file' =>  $img->getName(),
+			   'tipe_file'  => $img->getClientExtension(),
+			   'ukuran_file'=> $img->getSize(),
+			   'create_at'=> date("Y-m-d h:i:sa")
+            ];
+    
+            $save = $db->insert($data);
+            // print_r('File has successfully uploaded');        
+        }
+        return redirect()->to('/home');
+  
+
+		// $upData = [
+		// 	'name'=>$namaFile,
+		// 	'type'=>$tipeFile,
+		// 	'size'=>$sizeFile
+		// ];
+
+		// $this->fileModel->save([
+		// 	'nama_file'=>$namaFile,
+		// 	'tipe_file'=>$tipeFile,
+		// 	'ukuran_file'=>$sizeFile
+		// ]);
+		// return redirect()->to('/home');
 		// helper(['form', 'url']);
 		// $input = $this->validate([
 		// 	'file' => [
