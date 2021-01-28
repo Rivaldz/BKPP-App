@@ -3,6 +3,7 @@
 
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalBidang">Tambah Bidang</button>
     <button class="btn btn-info" data-toggle="modal" data-target="#tambahUser">Tambah User</button>
+    <button class="btn btn-info">Lihat User</button>
 
     <div class="card">
         <div class="card-header bg-info text-white">
@@ -228,21 +229,18 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($getBidangData as $showbd){ 
-                     ?>
-                    <?php foreach($getNamaBidang as $namaTr){ 
-                        if ($showbd['id_bidang'] == $namaTr['id_bidang']) {
-                       ?>
-                <tr>
-                    <?php foreach(uuuu){
-                        if ($showbd['id_bidang'] == $namaTr['id_bidnag']) {
-                        # code...
+                <?php foreach($getBidangData as $sgbd){?>
+                 <tr>
+                    <?php foreach ($getNamaBidang as $vgnb) {
                     ?>
-                    <td> <?= $showbd['nama_isi_bidang'] ?></td>
-                    <?php }} ?>
-                </tr>
-                <?php }
-            }} ?>
+                    <td>
+                        <?php if($sgbd['id_bidang'] == $vgnb['id_bidang']){ ?>
+                            <?= $sgbd['nama_isi_bidang'] ?>
+                        <?php } ?>
+                    </td>
+                    <?php } ?>
+                 </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
