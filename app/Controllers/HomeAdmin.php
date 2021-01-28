@@ -103,6 +103,12 @@ class HomeAdmin extends Controller{
         return redirect()->to('/homeadmin');
     }
 
+    public function deleteDataBidang($id){
+        $model = new DataBidang_Model;
+        $model -> deleteDataBidang($id);
+        return redirect()->to('/homeadmin');
+    }
+
     // public function getDataBidang(){
     //     $model = new DataBidang_Model;
     //     $data[]

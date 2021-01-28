@@ -23,5 +23,10 @@ class DataBidang_Model extends Model
             return $this->where(['id_isi_bidang' => $id])->first();
         }
     }
+
+    public function deleteDataBidang($id){
+        $query = $this->db->table('nama_isi_bidang')->delete(array('id_isi_bidang' => $id));
+        return $query;
+    }
     
 }

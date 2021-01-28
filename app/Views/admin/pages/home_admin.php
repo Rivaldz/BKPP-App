@@ -203,12 +203,38 @@
                                 </td>
                                 <td>
                                     <button class="btn btn-info">Edit</button>
-                                    <button class="btn btn-warning">Hapus</button>
+                                    <button class="btn btn-warning"  data-toggle="modal" data-target="#deleteDataBidang<?= $gbd['id_isi_bidang'];?>">Hapus</button>
                                 </td>
                              </tr>
+                             <div>
+                            <form action="/HomeAdmin/deleteDataBidang/<?=$gbd['id_isi_bidang'] ?>" method="post">
+                                <div class="modal fade" id="deleteDataBidang<?= $gbd['id_isi_bidang'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Bidang</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <h4>Anda Yakin Ingin Menghapus Bidang Ini?</h4>
+             
+                                        </div>
+                                             <div class="modal-footer">
+                                              <input type="hidden" name="product_id" class="productID">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                              <button type="submit" class="btn btn-primary">Ya</button>
+                                        </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
                         <?php $no++; } ?>
                     </tbody>
                 </table>
+
                 <button class="btn btn-danger" data-toggle = "modal" data-target="#modalIsiBidang">Tambah Data Bidang</button>
                 <!-- <button class="btn btn-success">Simpan Perubahan</button> -->
             </div>
@@ -224,7 +250,7 @@
             <thead>
                 <tr>
                 <?php $no=1; foreach($getNamaBidang as $showdat){?>
-                    <th> <?= $no ?> <?=$showdat['nama_bidang'] ?></th>
+                    <th><?=$showdat['nama_bidang'] ?></th>
                 <?php $no++; } ?>
                 </tr>
             </thead>
