@@ -33,8 +33,8 @@
                             </td>
 
                             <td>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <a href="" class="btn btn-warning">Edit</a>
+                                <a href="" class="btn btn-danger">Delete</a>
                             </td>
                             <?php }} ?>
                         </tr>
@@ -53,7 +53,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Bidang</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -61,8 +61,12 @@
             <div class="modal-body">
              
                 <div class="form-group">
-                    <label>Nama Bidang</label>
-                    <input type="text">
+                    <label>Username</label>
+                    <input class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
                 </div>
 
             </div>
