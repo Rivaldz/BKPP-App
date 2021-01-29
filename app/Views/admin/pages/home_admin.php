@@ -257,8 +257,7 @@
             <tbody>
                 <?php foreach($getBidangData as $sgbd){?>
                  <tr>
-                    <?php foreach ($getNamaBidang as $vgnb) {
-                    ?>
+                    <?php foreach ($getNamaBidang as $vgnb) {?>
                     <td>
                         <?php if($sgbd['id_bidang'] == $vgnb['id_bidang']){ ?>
                             <?= $sgbd['nama_isi_bidang'] ?>
