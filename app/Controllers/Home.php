@@ -16,58 +16,41 @@ class Home extends BaseController
 			'dataFile' => $this->fileModel->findAll()
 		];
 		return view('admin/pages/home', $data);
+		// $data = $this->fileModel->findAll();
+		// dd($data);
 	}
 
 	public function upload()
 	{
 		// helper(['form', 'url']);
-		// if (!$this->validate([
-		// 	'files' => [
-		// 		'rules' => 'uploaded[files]|ext_in[files,xls,xlsx,xlsb,xlsm,xlt,xltx,xltm,xla,xlam,xlm,csv]',
-		// 		'errors'=> [
-		// 			'uploaded'=>'{field} tidak boleh kosong!',
-		// 			'ext_in'=>'{field} tidak cocok'
-		// 		]
-		// 	]
-		// ])) {
-		// 	$validation = \Config\Services::validation();
-		// 	return redirect()->to('/home')->withInput()->with('validation', $validation);
-		// }
+		if (!$this->validate([
+			'files' => [
+				'rules' => 'ext_in[files,xls,xlsx,xlsb,xlsm,xlt,xltx,xltm,xla,xlam,xlm,csv]',
+				'errors'=> [
+					'ext_in'=>'{field} tidak cocok'
+				]
+			]
+		])) {
+			return redirect()->to('/home')->withInput();
+		}
 		$files = $this->request->getFile('files');
 		$namaFile = $files->getName();
+		$newName = url_title($namaFile, '-',true);
 		$tipeFile = $files->getClientExtension();
 		$sizeFile = $files->getSize();
-		$files->move('uploads');
+		// $files->move('uploads',$namaFile);
 
-		$this->fileModel->save([
-			'name'=>$namaFile,
+
+		$upData = [
+			'name'=>$newName,
 			'type'=>$tipeFile,
 			'size'=>$sizeFile
-		]);
-		return redirect()->to('/home');
-		// helper(['form', 'url']);
-		// $input = $this->validate([
-		// 	'file' => [
-		// 		'uploaded[file]|ext_in[file,xls,xlsx,xlsb,xlsm,xlt,xltx,xltm,xla,xlam,xlm,csv]',
-		// 		'errors'=>[
-		// 			'uploaded'=>'{field} tidak boleh kosong.',
-		// 			'ext_in'=>'{field} tidak sesuai format'
-		// 		]
-		// 	]
-		// ]);
-		// if (!$input) {
-		// 	print_r('Unggah file yang valid');
-		// }else {
-		// 	$file = $this->request->getFile('file');
-		// 	$file->move(WRITEPATH. 'uploads');
+		];
 
-		// 	$data = [
-		// 		'nama_file'=>$file->getName(),
-		// 		'tipe_file'=>$file->getExtension()
-		// 	];
+		return dd($upData);
 
-		// 	$this->fileModel->save($data);
-		// }
+		// $this->fileModel->save($upData);
+		// return redirect()->to('/home');
 	}
 
 
