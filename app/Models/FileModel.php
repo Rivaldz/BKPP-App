@@ -10,5 +10,9 @@ class FileModel extends Model
     protected $allowedFields = ['name', 'type', 'size'];
 
     protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
+
+    // public function insertFile($data)
+    // {
+        
+    // }
 }
