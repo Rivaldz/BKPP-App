@@ -25,7 +25,6 @@ class HomeAdmin extends Controller{
         $data['validation'] = \Config\Services::validation();
         
         return view('admin/pages/home_admin',$data);
-        // return dd($data['getNamaBidang']);
     }
 
     public function addBidang(){
@@ -108,10 +107,5 @@ class HomeAdmin extends Controller{
         $model -> deleteDataBidang($id);
         return redirect()->to('/homeadmin');
     }
-
-    // public function getDataBidang(){
-    //     $model = new DataBidang_Model;
-    //     $data[]
-    // }
 
 }

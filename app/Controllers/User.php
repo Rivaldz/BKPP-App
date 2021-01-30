@@ -18,4 +18,10 @@ class User extends Controller{
         // $this->load->view('admin/pages/user');
         return redirect()->to('admin/pages/user');
     }
+
+    public function deleteUser($id){
+        $model = new Users_Model;
+        $model -> deleteUser($id);
+        return redirect()->to('admin/pages/user');
+    }
 }

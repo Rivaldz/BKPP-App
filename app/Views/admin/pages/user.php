@@ -34,11 +34,34 @@
 
                             <td>
                                 <button>Edit</button>
-                                <button>Delete</button>
+                                <button data-toggle="modal" data-target="#deleteUser<?= $getUD['id_user'] ?>">DeleteUser</button>
                             </td>
                             <?php }} ?>
                         </tr>
-
+                            <form action="/User/deleteUser/<?=$getUD['id_user'] ?>" method="post">
+                                <div class="modal fade" id="deleteUser<?= $getUD['id_user'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Bidang</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <h4>Anda Yakin Ingin Menghapus Bidang Ini?</h4>
+             
+                                        </div>
+                                             <div class="modal-footer">
+                                              <input type="hidden" name="product_id" class="productID">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                              <button type="submit" class="btn btn-primary">Ya</button>
+                                        </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
                     <?php $i++;} ?>
                     </tbody>
                 </table>

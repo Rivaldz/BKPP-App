@@ -27,5 +27,9 @@ class Users_Model extends Model{
         $builder->where('id_user', $data['id_user']);
         return $builder->update($data);    
     }
-
+    
+    public function deleteUser($id){
+        $query = $this->db->table('user_tb')->delete(array('id_user' => $id));
+        return $query;
+    }
 }
