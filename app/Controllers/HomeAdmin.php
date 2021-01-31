@@ -18,7 +18,6 @@ class HomeAdmin extends Controller{
         $model = new Bidang_admin_model;
         $modelUser = new Users_Model;
         $modelDataBidang = new DataBidang_Model;
-        $data['title'] = 'Data Bidang';
         $data['getNamaBidang'] = $model->getNamaBidang();
         $data['getUser0'] = $modelUser->getUserModel();
         $data['getBidangData'] = $modelDataBidang->getDataBidang();
@@ -41,10 +40,10 @@ class HomeAdmin extends Controller{
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/homeadmin')->withInput()->with('validation', $validation);
+            return redirect()->to('/NamaBidang')->withInput()->with('validation', $validation);
         }
         $model->saveBidang($data);
-        return redirect()->to('/homeadmin');
+        return redirect()->to('/NamaBidang');
 
     }
 
@@ -60,20 +59,20 @@ class HomeAdmin extends Controller{
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/homeadmin')->withInput()->with('validation', $validation);
+            return redirect()->to('/NamaBidang')->withInput()->with('validation', $validation);
         }
         $this->modelBidang->updateBidang([
             'id_bidang' => $id,
             'nama_bidang'=>$this->request->getVar('nama')
         ]);
-        return redirect()->to('/homeadmin');
+        return redirect()->to('/NamaBidang');
     }
 
     public function delete($id)
     {
         $model = new Bidang_admin_model;
         $model->deleteBidang($id);
-        return redirect()->to('/homeadmin');
+        return redirect()->to('/NamaBidang');
     }
 
     public function addUser($id){
@@ -108,4 +107,56 @@ class HomeAdmin extends Controller{
         return redirect()->to('/homeadmin');
     }
 
+    // Page Controller
+    public function  namaBidang(){
+        $model = new Bidang_admin_model;
+        $modelUser = new Users_Model;
+        $modelDataBidang = new DataBidang_Model;
+        $data['title'] = 'Data Bidang';
+        $data['getNamaBidang'] = $model->getNamaBidang();
+        $data['getUser0'] = $modelUser->getUserModel();
+        $data['getBidangData'] = $modelDataBidang->getDataBidang();
+        $data['validation'] = \Config\Services::validation();
+
+       return view ('admin/pages/namabidang_admin',$data);
+    }
+
+    public function dataBidang(){
+        $model = new Bidang_admin_model;
+        $modelUser = new Users_Model;
+        $modelDataBidang = new DataBidang_Model;
+        $data['title'] = 'Data Bidang';
+        $data['getNamaBidang'] = $model->getNamaBidang();
+        $data['getUser0'] = $modelUser->getUserModel();
+        $data['getBidangData'] = $modelDataBidang->getDataBidang();
+        $data['validation'] = \Config\Services::validation();
+
+        return view('admin/pages/databidang_admin',$data);
+    }
+
+    public function dataUser(){
+        $model = new Bidang_admin_model;
+        $modelUser = new Users_Model;
+        $modelDataBidang = new DataBidang_Model;
+        $data['title'] = 'Data Bidang';
+        $data['getNamaBidang'] = $model->getNamaBidang();
+        $data['getUser0'] = $modelUser->getUserModel();
+        $data['getBidangData'] = $modelDataBidang->getDataBidang();
+        $data['validation'] = \Config\Services::validation();
+
+        return view('admin/pages/dataUser/admin',$data);
+    }
+
+    public function dataView(){
+        $model = new Bidang_admin_model;
+        $modelUser = new Users_Model;
+        $modelDataBidang = new DataBidang_Model;
+        $data['title'] = 'Data Bidang';
+        $data['getNamaBidang'] = $model->getNamaBidang();
+        $data['getUser0'] = $modelUser->getUserModel();
+        $data['getBidangData'] = $modelDataBidang->getDataBidang();
+        $data['validation'] = \Config\Services::validation();
+
+        return view('admin/pages/dataview_admin',$data);
+    }
 }

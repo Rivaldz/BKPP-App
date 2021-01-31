@@ -1,4 +1,4 @@
-<?= $this->extend('admin/layouts/layout'); ?>
+<?= $this->extend('admin/layouts/layout_admin'); ?>
 <?= $this->section('content'); ?>
 <div>
     <div class="card">

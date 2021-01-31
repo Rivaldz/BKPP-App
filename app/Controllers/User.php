@@ -14,11 +14,6 @@ class User extends Controller{
         return view('admin/pages/user',$data);
     }
 
-    public function movePage(){
-        // $this->load->view('admin/pages/user');
-        return redirect()->to('admin/pages/user');
-    }
-
     public function deleteUser($id){
         $model = new Users_Model;
         $model -> deleteUser($id);
