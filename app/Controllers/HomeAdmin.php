@@ -8,7 +8,7 @@ use App\Models\DataBidang_Model;
 
 class HomeAdmin extends Controller{
 
-    protected $modelBidang;
+    protected $modelBidang, $usersModel;
 
     public function __construct() {
         $this->modelBidang = new Bidang_admin_model();
@@ -65,6 +65,7 @@ class HomeAdmin extends Controller{
             'id_bidang' => $id,
             'nama_bidang'=>$this->request->getVar('nama')
         ]);
+        // $this->usersModel->editUser([])
         return redirect()->to('/NamaBidang');
     }
 
@@ -98,13 +99,13 @@ class HomeAdmin extends Controller{
             'id_bidang'       => $this->request->getPost('datbidBagianBidang')
         );
         $model->addDataBidang($data);
-        return redirect()->to('/homeadmin');
+        return redirect()->to('/databidang');
     }
 
     public function deleteDataBidang($id){
         $model = new DataBidang_Model;
         $model -> deleteDataBidang($id);
-        return redirect()->to('/homeadmin');
+        return redirect()->to('/databidang');
     }
 
     // Page Controller
@@ -112,7 +113,6 @@ class HomeAdmin extends Controller{
         $model = new Bidang_admin_model;
         $modelUser = new Users_Model;
         $modelDataBidang = new DataBidang_Model;
-        $data['title'] = 'Data Bidang';
         $data['getNamaBidang'] = $model->getNamaBidang();
         $data['getUser0'] = $modelUser->getUserModel();
         $data['getBidangData'] = $modelDataBidang->getDataBidang();

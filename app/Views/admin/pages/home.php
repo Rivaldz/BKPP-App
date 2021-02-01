@@ -1,7 +1,12 @@
 <?= $this->extend('admin/layouts/layout'); ?>
 
 <?= $this->section('content'); ?>
-	<h4>Selamat datang admin bidang Binaindo </h4>
+	<a href="/login/logout">Logout</a>
+	<?php $idBidang = session()->get('id_bidang'); foreach($getNamaBidang as $gnb){
+		if( $idBidang==$gnb['id_bidang']){ ?>
+	<h4>Selamat datang <?= session()->get('username'); ?> bidang <?= $gnb['nama_bidang']  ?> </h4>
+	<?php }} ?>
+
 	<h5>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disini!</a></h5>
 	<div class="card">
 		<div class="card-body">
@@ -26,10 +31,15 @@
 							</td>
 
 							<td>
+
 								<select name="ke" id="ke" class="form-control">
-									<option value="1"> Hukuman Disiplin</option>
-									<option value="2"> Pemberhentian</option>
-									<option value="3"> Perceraian</option>
+								<?php foreach($getBidangData as $getBD){
+									if ($getBD['id_bidang'] == session()->get('id_bidang')) {
+									# code...
+								 ?>
+									<option value="<?=$getBD['id_bidang']?>"><?= $getBD["nama_isi_bidang"] ?></option>
+								<?php 
+								 }} ?>
 								</select>	
 							</td>
 						</tr>
