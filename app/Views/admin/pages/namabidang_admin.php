@@ -29,11 +29,17 @@
                                 </td>
                                 <td>
                                 <?php foreach($getUser0 as $userb){
+                                    $hiden="";
                                     if ($isi['id_bidang'] == $userb['id_bidang']) {
+                                        $hiden="display: none;";
                                     ?>
                                     <?=$userb['username'] ?>
-                                <?php } } ?>
-                                <!-- user <?= $no; ?> -->
+                                <?php break;}} ?>
+                                        <div style="<?=$hiden?>">
+                                            <a href="/User" data-toggle="modal" data-target="#tambahUser" class="btn btn-primary" style="font-size: 0.8em;">Tambah User</a>
+                                            <a href="/User" data-toggle="modal" data-target="#tambahUser" class="btn btn-info" style="font-size: 0.8em;">Pilih User</a>
+
+                                        </div>
                                 </td>
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
@@ -75,7 +81,7 @@
 
                                                <div class="form-group">
                                                  <label for="">Password</label>
-                                                 <input type="text" class="form-control" name="password" placeholder="Password">
+                                                 <input type="password" class="form-control" name="password" placeholder="Password">
                                                </div> 
                                             </div>
                                                 <div class="modal-footer">
@@ -105,27 +111,12 @@
                                                     <label>Nama Bidang</label>
                                                     <input type="text"  name="nama" value="<?= $isi['nama_bidang']; ?>"  class="form-control">
                                                 </div> 
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                        <select name="bidang" class="form-control shwo-tick" id="">
-                                                        <?php foreach($getUser0 as $usr){
-                                                            if ($isi['id_bidang'] == $usr['id_bidang']) {
-                                                        ?> 
-                                                            <option value="<?= $usr['id_bidang'] ?>" selected><?=$usr['username']?></option>
-                                                        <?php }else {
-                                                            # code...
-                                                        ?>
-										                    <option value="<?= $usr['id_bidang'] ?>"><?= $usr['username'] ?></option>
-                                                        <?php }} ?>
-                                                        </select>
-                                                    </div>
-                                               </div >
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Save</button>
                                         </div>
-                                        </form>
+                                    </form>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +149,7 @@
                         <?php $no++; } ?>
                     </tbody>
                 </table>
-      <!-- Modal Tambah Bidang-->
+ <!-- Modal Tambah Bidang-->
     <form action="/HomeAdmin/addBidang" method="post">
         <div class="modal fade" id="modalBidang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -32,4 +32,11 @@ class Users_Model extends Model{
         $query = $this->db->table('user_tb')->delete(array('id_user' => $id));
         return $query;
     }
+
+    public function cekLogin($username, $password){
+        $queryLogin = $this->db->table('user_tb')
+        ->where(array('username' => $username,'password' => $password))
+        ->get()->getRowArray();
+        return $queryLogin;
+    }
 }

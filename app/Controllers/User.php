@@ -17,6 +17,12 @@ class User extends Controller{
     public function deleteUser($id){
         $model = new Users_Model;
         $model -> deleteUser($id);
-        return redirect()->to('admin/pages/user');
+        return redirect()->to('/User');
+    }
+    
+    public function editUser($data){
+        $model = new Users_Model;
+        $model -> editUsers();
+        return redirect()->to('/User');
     }
 }
