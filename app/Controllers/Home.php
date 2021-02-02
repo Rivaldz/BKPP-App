@@ -1,6 +1,9 @@
 <?php namespace App\Controllers;
 
 use App\Models\FileModel;
+use App\Models\Bidang_admin_model;
+use App\Models\Users_Model;
+use App\Models\DataBidang_Model;
 
 class Home extends BaseController
 {
@@ -10,14 +13,20 @@ class Home extends BaseController
 
 	public function index()
 	{
+		$model = new Bidang_admin_model;
+        $modelUser = new Users_Model;
+        $modelDataBidang = new DataBidang_Model;
+        
 		$data = [
 			'judul' => 'Home',
 			'validation'=>\Config\Services::validation(),
 			'dataFile' => $this->fileModel->findAll()
 		];
-		return view('admin/pages/home', $data);
-		// $data = $this->fileModel->findAll();
-		// dd($data);
+		$data['getNamaBidang'] = $model->getNamaBidang();
+        $data['getUser0'] = $modelUser->getUserModel();
+		$data['getBidangData'] = $modelDataBidang->getDataBidang();
+		// $this->load->view('admin/pages/home',$data);
+		return view('admin/pages/home',$data);
 	}
 
 	public function upload()

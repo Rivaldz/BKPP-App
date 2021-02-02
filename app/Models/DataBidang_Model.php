@@ -29,4 +29,11 @@ class DataBidang_Model extends Model
         return $query;
     }
     
+    public function updateBidang($data)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->where('id_isi_bidang', $data['id_isi_bidang']);
+        return $builder->update($data);
+    }
+    
 }
