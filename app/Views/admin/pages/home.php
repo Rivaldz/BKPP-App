@@ -11,7 +11,6 @@
 					<div class="invalid-feedback">
 						<?= $validation->getError('files'); ?>
 					</div>
-					<!-- <label for="file">Masukkan file excel</label> -->
 				</div>
 		</div>
 		<div class="card-footer">
