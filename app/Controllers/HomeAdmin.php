@@ -76,7 +76,7 @@ class HomeAdmin extends Controller{
         return redirect()->to('/NamaBidang');
     }
 
-    public function addUser($id){
+    public function addUser(){
         $model = new Users_Model;
         $data = array(
             'username' => $this->request->getPost('username'),

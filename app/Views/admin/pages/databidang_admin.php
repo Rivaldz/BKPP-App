@@ -38,7 +38,7 @@
                                         <?php }} ?>
                                 </td>
                                 <td>
-                                    <button class="btn btn-info">Edit</button>
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#modalEditBidang<?=$gbd['id_isi_bidang']?>">Edit</button>
                                     <button class="btn btn-warning"  data-toggle="modal" data-target="#deleteDataBidang<?= $gbd['id_isi_bidang'];?>">Hapus</button>
                                 </td>
                              </tr>
@@ -67,6 +67,48 @@
                                 </div>
                             </form>
                             </div>
+    <!-- Edit Data Bidang -->
+    <form action="/DataBidang/editBidang/<?=$gbd['id_isi_bidang']?>" method="post">
+        <div class="modal fade" id="modalEditBidang<?=$gbd['id_isi_bidang']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Isi Bidang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <label for="">Bagian Bidang</label>
+                <div class="form-group">
+                    <div class="form-line">
+                        <select id="datbidBagianBidang" name="editOptionDataBidang" class="form-control shwo-tick">
+                          <?php foreach($getNamaBidang as $gnb){
+                              if ($gnb['id_bidang'] == $gbd['id_bidang']) {
+                                  # code...
+                              ?> 
+                                <option value="<?=$gnb['id_bidang']?>" selected><?=$gnb['nama_bidang']?></option>
+                           <?php }else{ ?> 
+                                <option value="<?=$gnb['id_bidang']?>"><?=$gnb['nama_bidang']?></option>
+                           <?php }} ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Nama Isi Bidang</label>
+                    <input type="text" class="form-control" name="editNamaDataBidang" placeholder="Nama Data Bidang" value="<?= $gbd['nama_isi_bidang'] ?>">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
                         <?php $no++; } ?>
                     </tbody>
                 </table>
@@ -114,4 +156,6 @@
         </div>
         </div>
     </form>
+
+
 <?= $this->endSection(); ?>

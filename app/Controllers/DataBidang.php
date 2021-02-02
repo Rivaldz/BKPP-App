@@ -17,5 +17,14 @@ class DataBidang extends Controller
 
         return view('admin/pages/databidang_admin',$data);
     }
+    public function editBidang($id){
+        $modelDta = new DataBidang_Model;
+        $modelDta->updateBidang([
+            'id_isi_bidang' => $id,
+            'nama_isi_bidang'=>$this->request->getVar('editNamaDataBidang'),
+            'id_bidang' => $this->request->getPost('editOptionDataBidang')
+        ]);
+        return redirect()->to('/databidang');
+    }
     
 }
