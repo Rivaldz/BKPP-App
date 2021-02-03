@@ -4,6 +4,7 @@ use CodeIgniter\Controller;
 use App\Models\Bidang_admin_model;
 use App\Models\Users_Model;
 use App\Models\DataBidang_Model;
+use App\Models\FileModel;
 
 
 class HomeAdmin extends Controller{
@@ -18,9 +19,12 @@ class HomeAdmin extends Controller{
         $model = new Bidang_admin_model;
         $modelUser = new Users_Model;
         $modelDataBidang = new DataBidang_Model;
+        $fileModel = new FileModel;
+
         $data['getNamaBidang'] = $model->getNamaBidang();
         $data['getUser0'] = $modelUser->getUserModel();
         $data['getBidangData'] = $modelDataBidang->getDataBidang();
+        $data['fileModel'] = $fileModel->findAll();
         $data['validation'] = \Config\Services::validation();
         
         return view('admin/pages/home_admin',$data);
@@ -85,6 +89,17 @@ class HomeAdmin extends Controller{
         );
         $model->saveUser($data);
         return redirect()->to('/homeadmin');
+    }
+    public function addUserAdmin(){
+        $model = new Users_Model;
+        $data = array(
+            'username' => $this->request->getPost('usernameAdmin'),
+            'password' => md5($this->request->getPost('passwordAdmin')),
+            'id_bidang' => 0,
+            'role' => 1,
+        );
+        $model->saveUser($data);
+        return redirect() ->to('/User');
     }
 
     public function getUser($id){

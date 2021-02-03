@@ -22,10 +22,15 @@ class login extends Controller{
             </script>";
             # code...
         }else {
+            if ($cekLogin['role'] == 1) {
+                # code...
+                return redirect()->to('/HomeAdmin');
+            }else{
             session()->set('id_user', $cekLogin['id_user']);
             session()->set('username', $cekLogin['username']);
             session()->set('id_bidang', $cekLogin['id_bidang']);
             return redirect()->to('/Home'); 
+            }
             // return redirect()->to('/Login');
         }
     }

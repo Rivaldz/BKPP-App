@@ -10,7 +10,7 @@
 	<h5>Silahkan download template excel <a href="https://drive.google.com/uc?export=download&id=1_cVgsnnSTjClOoRnOkGp25x3zUYwwADe">Disini!</a></h5>
 	<div class="card">
 		<div class="card-body">
-			<form action="/home/upload" method="post" enctype="multipart/form-data">
+			<form action="/home/upload/" method="post" enctype="multipart/form-data">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
@@ -32,19 +32,17 @@
 
 							<td>
 
-								<select name="ke" id="ke" class="form-control">
+								<select name="idHome" id="ke" class="form-control">
 								<?php foreach($getBidangData as $getBD){
 									if ($getBD['id_bidang'] == session()->get('id_bidang')) {
-									# code...
 								 ?>
-									<option value="<?=$getBD['id_bidang']?>"><?= $getBD["nama_isi_bidang"] ?></option>
+									<option value="<?=$getBD['id_isi_bidang']?>"><?= $getBD["nama_isi_bidang"] ?></option>
 								<?php 
 								 }} ?>
 								</select>	
 							</td>
 						</tr>
 					</tbody>
-
 				</table>
 				<!-- <div class="form-group">
 					<div class="invalid-feedback">
@@ -68,6 +66,7 @@
 						<th>Tanggal Upload</th>
 						<th>Data Bidang</th>
 						<th>Status</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -76,10 +75,21 @@
 				foreach ($dataFile as $file):?>
 					<tr>
 						<td><?= $index++; ?></td>
-						<td><?= $file['name']; ?></td>
-						<td>29-01-20021</td>
+						<td><?= $file['nama_file'] ?></td>
+						<td><?= $file['tanggal_upload'] ?></td>
 						<td>Hukuman Disiplin</td>
-						<td>Di Review</td>
+						<td>
+							<?php if($file['status'] == 1){ ?>
+								<p class="text-info">Sedang Di Review</p>
+							<?php }elseif($file['status'] == 2){?>
+								<button>Revisi</button>
+							<?php }else{?>
+								<p class="text-success">Di Terima</p>	
+							<?php } ?>
+						</td>
+						<td> 
+							<button>Download</button>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

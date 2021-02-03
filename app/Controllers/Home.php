@@ -31,38 +31,23 @@ class Home extends BaseController
 
 	public function upload()
 	{
-		// helper(['form', 'url']);
-		if (!$this->validate([
-			'files' => [
-				'rules' => 'ext_in[files,xls,xlsx,xlsb,xlsm,xlt,xltx,xltm,xla,xlam,xlm,csv]',
-				'errors'=> [
-					'ext_in'=>'{field} tidak cocok'
-				]
-			]
-		])) {
-			return redirect()->to('/home')->withInput();
-		}
-		$files = $this->request->getFile('files');
-		$namaFile = $files->getName();
-		$newName = url_title($namaFile, '-',true);
-		$tipeFile = $files->getClientExtension();
-		$sizeFile = $files->getSize();
-		// $files->move('uploads',$namaFile);
+		$modelUpload = new FileModel();
 
+		$file = $this->request->getFile('files');
+		$file->move('uploads');
+		$nameFile = $file->getName();
+		$date = date("Y/m/d");
 
-		$upData = [
-			'name'=>$newName,
-			'type'=>$tipeFile,
-			'size'=>$sizeFile
-		];
+		$data = array(
+			'nama_file' => $nameFile,
+			'tanggal_upload' => $date,
+			'data_bidang_id' => $this->request->getPost('idHome'),
+			'status' => 1,
+			'nama_bidang_id' => session()->get('id_bidang'),
+		);
 
-		return dd($upData);
-
-		// $this->fileModel->save($upData);
-		// return redirect()->to('/home');
+		$modelUpload->saveFile($data);
+		return redirect() ->to('/Home');
 	}
-
-
-	//--------------------------------------------------------------------
 
 }
