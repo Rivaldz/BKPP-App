@@ -49,5 +49,15 @@ class Home extends BaseController
 		$modelUpload->saveFile($data);
 		return redirect() ->to('/Home');
 	}
+	public function download($var){
+		$response = $this->response;;
+		
+		$path ='uploads/'.(string)$var;
+		// $main = ;
+
+		// force_download('upload/8.png',null);
+		echo $path;
+		return $response->download($path, null);
+	}
 
 }

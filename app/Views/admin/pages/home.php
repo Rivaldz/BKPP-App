@@ -88,7 +88,7 @@
 							<?php } ?>
 						</td>
 						<td> 
-							<button>Download</button>
+								<a href="/Home/download/<?=$file['nama_file']?>">Download</a>
 						</td>
 					</tr>
 				<?php endforeach; ?>
