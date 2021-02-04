@@ -174,4 +174,24 @@ class HomeAdmin extends Controller{
 
         return view('admin/pages/dataview_admin',$data);
     }
+
+    public function editFileAdmin($id){
+		$model = new FileModel;
+        $nameFile = $model->find($id);
+        $inputDisetujui = $this->request->getPost('disetujui') ;
+        $inputDitolak = $this->request->getPost('revisi');
+
+       if ($inputDisetujui || $inputDitolak ) {
+           # code...
+       } 
+
+        $object = array(
+            'id' => $id,
+			'status' => 3,
+        );
+        
+        $model->editFile($object);
+
+		return redirect()->to('/Home');
+	}
 }

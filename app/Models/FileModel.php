@@ -15,4 +15,10 @@ class FileModel extends Model
         return $builder->insert($data);
     }
 
+    public function editFile($data){
+        $builder = $this->db->table($this->table);
+        $builder->where('id', $data['id']);
+        return $builder->update($data);    
+    }
+
 }
