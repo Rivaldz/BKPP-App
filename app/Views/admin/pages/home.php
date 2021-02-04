@@ -50,12 +50,8 @@
 					<div class="invalid-feedback">
 						<?= $validation->getError('files'); ?>
 					</div>
-<<<<<<< HEAD
-				</div>
-=======
 					<label for="file">Masukkan file excel</label>
 				</div> -->
->>>>>>> a1e97234576aed255c5890e16196723b664b31db
 		</div>
 		<div class="card-footer">
 				<button type="submit" class="btn btn-success">Upload</button>
