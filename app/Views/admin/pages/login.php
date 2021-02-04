@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
- 
+    <link rel="stylesheet" href="theme/sbadmin/assets/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="theme/sbadmin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Login</title>
   </head>
   <body>
@@ -21,11 +24,11 @@
                 <form action="/login/auth" method="post">
                     <div class="mb-3">
                         <label for="InputForEmail" class="form-label">Email address</label>
-                        <input type="text" name="username" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>">
+                        <input type="text" name="username" class="form-control form-control-user" id="InputForEmail" value="<?= set_value('email') ?>">
                     </div>
                     <div class="mb-3">
                         <label for="InputForPassword" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="InputForPassword">
+                        <input type="password" name="password" class="form-control form-control-user" id="InputForPassword">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
