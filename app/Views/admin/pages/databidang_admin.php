@@ -38,8 +38,12 @@
                                         <?php }} ?>
                                 </td>
                                 <td>
-                                    <button class="btn btn-info" data-toggle="modal" data-target="#modalEditBidang<?=$gbd['id_isi_bidang']?>">Edit</button>
-                                    <button class="btn btn-warning"  data-toggle="modal" data-target="#deleteDataBidang<?= $gbd['id_isi_bidang'];?>">Hapus</button>
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#modalEditBidang<?=$gbd['id_isi_bidang']?>">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-warning"  data-toggle="modal" data-target="#deleteDataBidang<?= $gbd['id_isi_bidang'];?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
                                 </td>
                              </tr>
                              <div>
