@@ -20,9 +20,20 @@ class User extends Controller{
         return redirect()->to('/User');
     }
     
-    public function editUser($data){
+    public function editUser($id){
         $model = new Users_Model;
-        $model -> editUsers();
+        $password = $this->request->getPost('userEditPassword');
+        $object = array(
+            'id_user' => $id,
+            'username'=>$this->request->getPost('userEditUsername'),
+            // 'password' => $this->request->getPost('userEditPassword'),
+            'id_bidang' => $this->request->getPost('userEditIdBidang'),
+        );
+        if ($password != null) {
+            $object['password'] = md5($this->request->getPost('userEditPassword'));
+        }
+        $model->editUser($object);
+
         return redirect()->to('/User');
     }
 }

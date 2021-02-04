@@ -4,15 +4,15 @@ use CodeIgniter\Model;
 
 class FileModel extends Model
 {
-    protected $table      = 'files_tb';
-    protected $primaryKey = 'id_file';
+    protected $table      = 'verifikasi_file';
+    protected $primaryKey = 'id';
 
-    protected $allowedFields = ['name', 'type', 'size'];
+    protected $allowedFields = ['nama_file', 'tanggal_upload', 'data_bidang_id','status','nama_bidang_id'];
 
-    protected $useTimestamps = true;
 
-    // public function insertFile($data)
-    // {
-        
-    // }
+    public function saveFile($data){
+        $builder = $this->db->table($this->table);
+        return $builder->insert($data);
+    }
+
 }

@@ -26,17 +26,16 @@
                                 <?= $getUD['username'] ?>
                             </td>
 
+                            <td>
                             <?php foreach($getNamaBidang as $getNB){?>
                             <?php if($getUD['id_bidang'] == $getNB['id_bidang']){ ?>
-                            <td>
                                 <?= $getNB['nama_bidang'] ?>
+                            <?php }} ?>
                             </td>
-
                             <td>
-                                <button>Edit</button>
+                                <button data-toggle="modal" data-target="#editUser<?=$getUD['id_user']?>">Edit</button>
                                 <button data-toggle="modal" data-target="#deleteUser<?= $getUD['id_user'] ?>">DeleteUser</button>
                             </td>
-                            <?php }} ?>
                         </tr>
                             <form action="/User/deleteUser/<?=$getUD['id_user'] ?>" method="post">
                                 <div class="modal fade" id="deleteUser<?= $getUD['id_user'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -62,17 +61,9 @@
                                 </div>
                             </form>
                             </div>
-                    <?php $i++;} ?>
-                    </tbody>
-                </table>
-                <button class="btn btn-danger" data-toggle = "modal" data-target="#tambahuser">Tambah User</button>
-                <!-- <button class="btn btn-success">Simpan Perubahan</button> -->
-            </div>
-        </div>
-    </div>
-
-    <form action="" method="post">
-        <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Edit User -->
+                            <form action="/User/editUser/<?=$getUD['id_user']?>" method="post">
+        <div class="modal fade" id="editUser<?=$getUD['id_user']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -85,11 +76,24 @@
              
                 <div class="form-group">
                     <label>Username</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="userEditUsername" value="<?=$getUD['username']?>">
+                </div>
+                <div class="form-group">
+                    <label for=""> Bagian Bidang</label>
+                    <select id="datbidBagianBidang" name="userEditIdBidang" class="form-control shwo-tick">
+                          <?php foreach($getNamaBidang as $gnb){
+                              if ($gnb['id_bidang'] == $getUD['id_bidang']) {
+                                  # code...
+                              ?> 
+                                <option value="<?=$gnb['id_bidang']?>" selected><?=$gnb['nama_bidang']?></option>
+                           <?php }else{ ?> 
+                                <option value="<?=$gnb['id_bidang']?>"><?=$gnb['nama_bidang']?></option>
+                           <?php }} ?>
+                        </select>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class="form-control">
+                    <input type="password" name="userEditPassword" id="password" class="form-control">
                 </div>
 
             </div>
@@ -101,7 +105,48 @@
         </div>
         </div>
     </form>
-</div>
+                    <?php $i++;} ?>
+                    </tbody>
+                </table>
+                <button class="btn btn-danger" data-toggle = "modal" data-target="#tambahuser">Tambah User</button>
+                <button class="btn btn-danger" data-toggle = "modal" data-target="#tambahUserAdmin">Tambah User Admin</button>
+            </div>
+        </div>
+    </div>
+
+                            <!-- Tambah User Admin -->
+                            <form action="/HomeAdmin/addUserAdmin" method="post">
+        <div class="modal fade" id="tambahUserAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header"> <h5 class="modal-title" id="exampleModalLabel">Tambah Bidang</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+                               </button>
+            </div>
+            <div class="modal-body">
+             
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control " name="usernameAdmin" placeholder="Username" >
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+
+                <div class="fomr-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control " name="passwordAdmin" placeholder="Product Name" >
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
+    <!-- End User Admin -->
+
 
                              <!-- tambah user -->
                              <div>
@@ -149,4 +194,6 @@
                                 </div>
                             </form>
                              </div>
+
+</div>
 <?= $this->endSection(); ?>
