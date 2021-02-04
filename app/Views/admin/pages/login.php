@@ -12,31 +12,74 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Login</title>
   </head>
-  <body>
-    <div class="container">
-        <div class="row justify-content-md-center">
- 
-            <div class="col-6">
-                <h1>Sign In</h1>
-                <?php if(session()->getFlashdata('msg')):?>
+  <body class="bg-gradient-info">
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-lg-7">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0"> 
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Sign in!</h1>
+                  </div>
+                  <?php if(session()->getFlashdata('msg')):?>
                     <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
-                <?php endif;?>
-                <form action="/login/auth" method="post">
-                    <div class="mb-3">
-                        <label for="InputForEmail" class="form-label">Email address</label>
-                        <input type="text" name="username" class="form-control form-control-user" id="InputForEmail" value="<?= set_value('email') ?>">
+                  <?php endif;?>
+                  <form class="user" action="/login/auth" method="post">
+                    <div class="form-group">
+                      <input name="username" type="text" class="form-control form-control-user" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username Anda..." value="<?= set_value('email') ?>">
                     </div>
-                    <div class="mb-3">
-                        <label for="InputForPassword" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control form-control-user" id="InputForPassword">
+                    <div class="form-group">
+                      <input name="password" type="password" class="form-control form-control-user" id="password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
+                    
+                    <button type="submit" class="btn btn-user btn-block btn-primary">Login</button>
+              </div>
             </div>
-             
+          </div>
         </div>
+
+      </div>
+
     </div>
-     
+
+  </div>                                                    
+
+      <!-- <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+              <div class="card-body p-0">
+                <div class="row">
+                  <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6">
+                      <h1>Sign In</h1>
+                        <?php if(session()->getFlashdata('msg')):?>
+                          <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+                        <?php endif;?>
+                        <form class="user" action="/login/auth" method="post">
+                            <div class="form-group">
+                              <input type="text" name="username" placeholder="Masukkan Username!" class="form-control form-control-user" id="InputForEmail" value="<?= set_value('email') ?>">
+                            </div>
+                            <div class="form-group">
+                              <input type="password" name="password" placeholder="Masukkan Password!" class="form-control form-control-user" id="InputForPassword">
+                            </div>
+                          <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  -->
     <!-- Popper.js first, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
