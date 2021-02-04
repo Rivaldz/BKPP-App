@@ -34,6 +34,12 @@ class Home extends BaseController
 		$modelUpload = new FileModel();
 
 		$file = $this->request->getFile('files');
+		if($file->getError() == 4){
+			echo "<script>
+            alert('Password atau Username Anda Salah');
+            window.location.href='/home';
+            </script>";
+		}else{
 		$file->move('uploads');
 		$nameFile = $file->getName();
 		$date = date("Y/m/d");
@@ -48,7 +54,9 @@ class Home extends BaseController
 
 		$modelUpload->saveFile($data);
 		return redirect() ->to('/Home');
+		}
 	}
+
 	public function download($var){
 		$response = $this->response;;
 		
@@ -59,5 +67,29 @@ class Home extends BaseController
 		echo $path;
 		return $response->download($path, null);
 	}
+
+	public function editFile($id){
+		$model = new FileModel;
+		$nameFile = $model->find($id);
+		// echo $nameFile['nama_file'];
+	 	unlink('uploads/'.$nameFile['nama_file']);
+
+		$file = $this->request->getFile('editFiles');
+		$file->move('uploads');
+		$fileName = $file->getName();
+	// 	// unlink('uploads/8.png');
+        $object = array(
+            'id' => $id,
+            'nama_file'=>$fileName,
+			'tanggal_upload' => date('Y/m/d'),
+			'data_bidang_id' => $this->request->getPost('nameRevisi'),
+			'status' => 1,
+        );
+        
+        $model->editFile($object);
+
+		return redirect()->to('/Home');
+	}
+
 
 }

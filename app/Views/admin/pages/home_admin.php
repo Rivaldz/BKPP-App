@@ -29,18 +29,66 @@
 						<td>Hukuman Disiplin</td>
 						<td>
 							<?php if($file['status'] == 1){ ?>
-								<p class="text-info">Menunggu Persetujuan</p>
-							<?php }elseif($file['status'] == 2){?>
-								<button>Revisi</button>
-							<?php }else{?>
-								<p class="text-success">Di Terima</p>	
-							<?php } ?>
+								<!-- <p class="text-info">Menunggu Persetujuan</p> -->
+                                <button data-toggle="modal" data-target="#revisiModal<?=$file['id']?>">Revisi</button>
+                                <button data-toggle="modal" data-target="#disetujuiModal<?=$file['id']?>">Disetujui</button>
+                                <?php } ?>
 						</td>
 						<td> 
-							<button>Download</button>
+							<button><a href="/Home/download/<?=$file['nama_file']?>">Download</a></button>
 						</td>
                         <?php } ?>
 					</tr>
+
+                    <form action=" HomeAdmin/editFileAdmin/<?=$file['id']?>" method="post"enctype="multipart/form-data"  >
+                                <div class="modal fade" id="revisiModal<?=$file['id']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Bidang</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <h4>Yakin slurr di revisi?</h4>
+                                            <input type="hidden" value="2" name="revisi">
+ 
+                                        </div>
+                                             <div class="modal-footer">
+                                              <input type="hidden" name="product_id" class="productID">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                              <button type="submit" class="btn btn-primary" >Ya</button>
+                                        </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form action="HomeAdmin/editFileAdmin/<?=$file['id']?>" method="post" enctype="multipart/form-data" >
+                                <div class="modal fade" id="disetujuiModal<?=$file['id']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Bidang</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <h4>Are you sure approve this?</h4>
+                                            <input type="hidden" value="3" name="disetujui">
+             
+                                        </div>
+                                             <div class="modal-footer">
+                                              <input type="hidden" name="product_id" class="productID">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                              <button type="submit" class="btn btn-primary" >Ya</button>
+                                        </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </form>
 				<?php endforeach; ?>
 				</tbody>
 			</table>
