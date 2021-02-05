@@ -25,6 +25,7 @@ class login extends Controller{
             if ($cekLogin['role'] == 1) {
                 # code...
                 return redirect()->to('/HomeAdmin');
+                session()->set('loginData','1');
             }else{
             session()->set('id_user', $cekLogin['id_user']);
             session()->set('username', $cekLogin['username']);

@@ -37,7 +37,7 @@
                                 <?php break;}} ?>
                                         <div style="<?=$hiden?>">
                                             <a href="/User" data-toggle="modal" data-target="#tambahUser" class="btn btn-primary" style="font-size: 0.8em;">Tambah User</a>
-                                            <a href="/User" data-toggle="modal" data-target="#tambahUser" class="btn btn-info" style="font-size: 0.8em;">Pilih User</a>
+                                            <a href="/User" data-toggle="modal" data-target="#pilihUser<?=$isi['id_bidang']?>" class="btn btn-info" style="font-size: 0.8em;">Pilih User</a>
 
                                         </div>
                                 </td>
@@ -48,8 +48,48 @@
                                 </td>
                              </tr>
 
-                             <!-- tambah user -->
+                             <!-- pilih user -->
                              <div>
+                             <form action="/NamaBidang/PilihUser/<?=$isi['id_bidang']?>" method="post">
+                                <div class="modal fade" id="pilihUser<?=$isi['id_bidang']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Pilih User</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                               <div class="form-group">
+                                                 <label for="">Username</label>
+                                                 <div class="form-group">
+                                                    <div class="form-line">
+                                                        <select id="t_user" name="tEditUser" class="form-control shwo-tick">
+                                                        <?php foreach($getUser0 as $getUser){
+                                                         ?> 
+                                                            <option value="<?=$getUser['id_user']?>"><?=$getUser['username']?></option>
+                                                        <?php } ?>
+                                                        </select>
+                                                    </div>
+                                               </div> 
+
+                                            </div>
+                                                <div class="modal-footer">
+                                                     <input type="hidden" name="product_id" class="productID">
+                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                     <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </form>
+                             </div>
+                             <!-- end pilih user -->
+
+                            <!-- tambah user -->
+                            <div>
                              <form action="/HomeAdmin/addUser/<?=$isi['id_bidang']?>" method="post">
                                 <div class="modal fade" id="tambahUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -93,8 +133,7 @@
                                     </div>
                                 </div>
                             </form>
-                             </div>
-                             <!-- end tambah user -->
+                             </div
 
                              <!-- modal edit bidang  -->
                              <div class="modal fade" id="modalEditBidang<?= $isi['id_bidang']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
