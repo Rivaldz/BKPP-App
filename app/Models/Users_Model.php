@@ -39,4 +39,5 @@ class Users_Model extends Model{
         ->get()->getRowArray();
         return $queryLogin;
     }
+
 }

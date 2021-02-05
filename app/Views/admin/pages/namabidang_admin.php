@@ -42,9 +42,12 @@
                                         </div>
                                 </td>
                                 <td>
-                                    <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >Edit</a>
+                                    <a href="#" data-toggle="modal" data-target="#modalEditBidang<?= $isi['id_bidang']; ?>" class="btn btn-success" >
+                                        <i class="fas fa-pen"></i>
+                                    </a>
                                     <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteBidang<?= $isi['id_bidang'];?>">
-                                    Hapus</a>
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                 </td>
                              </tr>
 

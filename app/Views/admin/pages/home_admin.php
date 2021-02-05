@@ -30,12 +30,14 @@
 						<td>
 							<?php if($file['status'] == 1){ ?>
 								<!-- <p class="text-info">Menunggu Persetujuan</p> -->
-                                <button data-toggle="modal" data-target="#revisiModal<?=$file['id']?>">Revisi</button>
-                                <button data-toggle="modal" data-target="#disetujuiModal<?=$file['id']?>">Disetujui</button>
+                                <button class="btn btn-warning" data-toggle="modal" data-target="#revisiModal<?=$file['id']?>">Revisi</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#disetujuiModal<?=$file['id']?>">Disetujui</button>
                                 <?php } ?>
 						</td>
 						<td> 
-							<button><a href="/Home/download/<?=$file['nama_file']?>">Download</a></button>
+							<a class="btn btn-success btn-circle" href="/Home/download/<?=$file['nama_file']?>">
+                                <i class="fas fa-download"></i>
+                            </a>
 						</td>
                         <?php } ?>
 					</tr>

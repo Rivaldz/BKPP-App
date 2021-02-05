@@ -33,8 +33,8 @@
                             <?php }} ?>
                             </td>
                             <td>
-                                <button data-toggle="modal" data-target="#editUser<?=$getUD['id_user']?>">Edit</button>
-                                <button data-toggle="modal" data-target="#deleteUser<?= $getUD['id_user'] ?>">DeleteUser</button>
+                                <button class="btn btn-info" data-toggle="modal" data-target="#editUser<?=$getUD['id_user']?>"> <i class="fas fa-pen"></i></button>
+                                <button data-toggle="modal" class="btn btn-danger" data-target="#deleteUser<?= $getUD['id_user'] ?>"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                             <form action="/User/deleteUser/<?=$getUD['id_user'] ?>" method="post">
