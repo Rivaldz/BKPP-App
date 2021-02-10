@@ -1,7 +1,7 @@
 <?= $this->extend('admin/layouts/layout'); ?>
 
 <?= $this->section('content'); ?>
-	<a href="/login/logout">Logout</a>
+	<!-- <a href="/login/logout">Logout</a> -->
 	<?php 
 		$idBidang = session()->get('id_bidang'); 
 		foreach($getNamaBidang as $gnb){
@@ -137,6 +137,8 @@
 													</select>
 
                                                 </div> 
+												<p>Point Revisi : </p>
+												<p> <?= $file['review'] ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

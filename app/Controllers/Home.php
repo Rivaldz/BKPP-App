@@ -61,9 +61,7 @@ class Home extends BaseController
 		$response = $this->response;;
 		
 		$path ='uploads/'.(string)$var;
-		// $main = ;
 
-		// force_download('upload/8.png',null);
 		echo $path;
 		return $response->download($path, null);
 	}
@@ -84,6 +82,7 @@ class Home extends BaseController
 			'tanggal_upload' => date('Y/m/d'),
 			'data_bidang_id' => $this->request->getPost('nameRevisi'),
 			'status' => 1,
+			'review' => " ",
         );
         
         $model->editFile($object);

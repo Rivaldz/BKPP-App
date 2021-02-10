@@ -3,7 +3,6 @@
     <!-- <button class="btn btn-info" data-toggle="modal" data-target="#tambahUser">Tambah User</button> -->
     <!-- <a class="btn btn-success" href="/User">Lihat User</a> -->
 
-    <h1>Admin akan mereview data disini</h1>
     <div class="card mt-5">
 		<div class="card-body">
 			<table class="table table-responsive-lg">
@@ -53,8 +52,9 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                            <h4>Yakin slurr di revisi?</h4>
+                                            <h5>Tuliskan kekuranga yang perlu di revisi.</h5>
                                             <input type="hidden" value="2" name="revisi">
+                                           <input type="text" class="form-control" name="review">
  
                                         </div>
                                              <div class="modal-footer">
@@ -78,7 +78,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                            <h4>Are you sure approve this?</h4>
+                                            <h4>Apakah yakin data sudah benar?</h4>
                                             <input type="hidden" value="3" name="disetujui">
              
                                         </div>
@@ -98,7 +98,7 @@
 	</div>
 
 
-    <h4>Daftar Bidang Dan Data Bidang </h4>
+    <!-- <h4>Daftar Bidang Dan Data Bidang </h4>
     <div>
         <table class="table table-bordered">
             <thead>
@@ -122,5 +122,5 @@
                 <?php } ?>
             </tbody>
         </table>
-    </div>
+    </div> -->
 <?= $this->endSection(); ?>
