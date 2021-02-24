@@ -52,6 +52,7 @@
 					</div>
 					<label for="file">Masukkan file excel</label>
 				</div> -->
+				<?= session()->getFlashdata('uploadItem'); ?>
 		</div>
 		<div class="card-footer">
 				<button type="submit" class="btn btn-success btn-icon-split">
