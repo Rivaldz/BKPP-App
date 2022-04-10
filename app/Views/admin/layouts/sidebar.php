@@ -14,7 +14,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-  <a class="nav-link" href="index.html">
+  <a class="nav-link" href="/Home">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -45,7 +45,7 @@
 <!-- Nav Item - Utilities Collapse Menu -->
 
 <li class="nav-item">
-  <a class="nav-link" href="/homeadmin">
+  <a class="nav-link" href="/LihatData">
     <i class="fas fa-fw fa-cubes"></i>
     <span>Lihat Data</span>
   </a>

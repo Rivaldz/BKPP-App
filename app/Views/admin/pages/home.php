@@ -1,7 +1,7 @@
 <?= $this->extend('admin/layouts/layout'); ?>
 
 <?= $this->section('content'); ?>
-	<a href="/login/logout">Logout</a>
+	<!-- <a href="/login/logout">Logout</a> -->
 	<?php 
 		$idBidang = session()->get('id_bidang'); 
 		foreach($getNamaBidang as $gnb){
@@ -52,6 +52,7 @@
 					</div>
 					<label for="file">Masukkan file excel</label>
 				</div> -->
+				<?= session()->getFlashdata('uploadItem'); ?>
 		</div>
 		<div class="card-footer">
 				<button type="submit" class="btn btn-success btn-icon-split">
@@ -137,6 +138,8 @@
 													</select>
 
                                                 </div> 
+												<p>Point Revisi : </p>
+												<p> <?= $file['review'] ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

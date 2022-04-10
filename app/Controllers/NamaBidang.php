@@ -8,6 +8,7 @@ use App\Models\DataBidang_Model;
 class NamaBidang extends Controller
 {
     public function index(){
+        
         $model = new Bidang_admin_model;
         $modelUser = new Users_Model;
         $modelDataBidang = new DataBidang_Model;
@@ -17,6 +18,18 @@ class NamaBidang extends Controller
         $data['validation'] = \Config\Services::validation();
 
         return view('admin/pages/namabidang_admin',$data);
+
+    }
+
+    public function pilihUser($id){
+        $model = new Users_Model;
+        $object = array(
+            'id_user' => $this->request->getPost('tEditUser'),
+            'id_bidang' => $id,
+        );
+        $model->editUser($object);
+        return redirect()->to('/NamaBidang');
+    
     }
     
 }

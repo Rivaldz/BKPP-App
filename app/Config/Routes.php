@@ -25,11 +25,11 @@ $routes->setAutoRoute(true);
 $routes->get('login', 'Login::index');
 $routes->post('login/proses', 'Login::proses');
 
-$routes->get('/home', 'Home::index', ['filter'=>'auth']);
-$routes->get('/logout','Login::logout', ['filter'=>'auth']);
+// $routes->get('/home', 'Home::index', ['filter'=>'auth']);
+// $routes->get('/logout','Login::logout', ['filter'=>'auth']);
 
-$routes->get('/homeadmin', 'HomeAdmin::index', ['filter'=>'auth']);
-$routes->get('/logout', 'Login::logout', ['filter'=>'auth']);
+// $routes->get('/homeadmin', 'HomeAdmin::index', ['filter'=>'auth']);
+// $routes->get('/logout', 'Login::logout', ['filter'=>'auth']);
 
 // $routes->get('/namabidang', 'NamaBidang::index', ['filter'=>'auth']);
 // $routes->get('/logout', 'Login::logout', ['filter'=>'auth']);

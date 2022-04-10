@@ -34,12 +34,21 @@
                   <?php endif;?>
                   <form class="user" action="/login/auth" method="post">
                     <div class="form-group">
-                      <input name="username" type="text" class="form-control form-control-user" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username Anda..." value="<?= set_value('email') ?>">
+                      <input name="username" type="text" class="form-control form-control-user <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username Anda..." value="<?= set_value('email') ?>">
+                      <div class="invalid-feedback">
+                        Username tidak boleh kosong
+                      </div>
                     </div>
                     <div class="form-group">
-                      <input name="password" type="password" class="form-control form-control-user" id="password" placeholder="Password">
+                      <input name="password" type="password" class="form-control form-control-user <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" placeholder="Password">
+                      <div class="invalid-feedback">
+                        Password tidak boleh kosong
+                      </div>
                     </div>
                     
+                    <p class="text-danger">
+				              <?= session()->getFlashdata('alertPassword'); ?>
+                    </p> 
                     <button type="submit" class="btn btn-user btn-block btn-primary">Login</button>
               </div>
             </div>

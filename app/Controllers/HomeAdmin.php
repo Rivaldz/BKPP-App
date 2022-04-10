@@ -181,17 +181,25 @@ class HomeAdmin extends Controller{
         $inputDisetujui = $this->request->getPost('disetujui') ;
         $inputDitolak = $this->request->getPost('revisi');
 
-       if ($inputDisetujui || $inputDitolak ) {
-           # code...
+       if ($inputDisetujui != null ) {
+            $var = 3;
+       }else{
+           $var = 2;
        } 
 
         $object = array(
             'id' => $id,
-			'status' => 3,
+            'status' => $var,
+            'review' => $this->request->getPost('review'),
         );
         
         $model->editFile($object);
 
-		return redirect()->to('/Home');
-	}
+		return redirect()->to('/HomeAdmin');
+    }
+
+    public function uploadRevisi(){
+
+        return redirect()->to('/HomeAdmin');
+    }
 }
